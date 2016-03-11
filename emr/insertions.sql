@@ -10,26 +10,26 @@ DELETE FROM PatientsAllergies;
 DELETE FROM Allergies;
 DELETE FROM PatientsPreConditions;
 DELETE FROM PreExistingConditions;
-DELETE FROM Prescribed_Meds;
+DELETE FROM Prescribed_Meds; 
 DELETE FROM Medicine;
-DELETE FROM Manufacturer;
-DELETE FROM Prescription;
-DELETE FROM Result;
-DELETE FROM Diagnosis;
-DELETE FROM Has_Visits;
-DELETE FROM Visit;
-DELETE FROM Bill;
-DELETE FROM Payment;
-DELETE FROM Insurance_Policy;
-DELETE FROM Insurance_Company;
-DELETE FROM Pharmacist;
-DELETE FROM Patient;
-DELETE FROM Doctor;
-DELETE FROM Department;
-DELETE FROM Person;
+DELETE FROM Manufacturer; 
+DELETE FROM Prescription; 
+DELETE FROM Result; 
+DELETE FROM Diagnosis; 
+DELETE FROM Has_Visits; 
+DELETE FROM Visit; 
+DELETE FROM Bill; 
+DELETE FROM Payment; 
+DELETE FROM Insurance_Policy; 
+DELETE FROM Insurance_Company; 
+DELETE FROM Pharmacist; 
+DELETE FROM Patient; 
+DELETE FROM Doctor; 
+DELETE FROM Department; 
+DELETE FROM Person; 
 
 
-INSERT INTO Person(SSN, First_Name, Last_Name, Home_Address, Birth_Date, Home_Phone, City, State, ZipCode, Gender) VALUES
+INSERT INTO Person(SSN, First_Name, Last_Name, Home_Address, Birth_Date, Home_Phone, City, State, ZipCode, Gender) VALUES 
 	("99999","John", "Smith","731 Fondren", "1965-07-09", "123456789","Houston", "TX", "90909",'M'),
 	("111111","Jessie", "Smith","999 Fondren", "1965-08-11", "123456789","Houston", "TX", "90919",'F'),
 	("222222","Jada", "Ross","3321 Castle", "1965-07-30", "123456789","Spring", "TX", "90989",'F'),
@@ -63,10 +63,10 @@ INSERT INTO Patient(SSN, Current_Status, D_SSN) VALUES
 	("8778", "Allergy issue raised", "55555");
 
 
-INSERT INTO Pharmacist(SSN, P_Office_Address, P_Office_City, P_Office_State, P_Office_Zip, P_Office_Phone, P_Qualification) VALUES
+INSERT INTO Pharmacist(SSN, P_Office_Address, P_Office_City, P_Office_State, P_Office_Zip, P_Office_Phone, P_Qualification) VALUES 
 	("666666", "1000 Davis", "Evanston", "IL", "60201", "1234567890", "Pharmacy managers"),
 	("7777555", "1000 Davis", "Evanston", "IL", "60201", "1234567890", "Pharmacy specialist");
-
+	
 
 INSERT INTO Insurance_Company(InsCompany_Name,  Ins_Phone, Ins_Address, Ins_City, Ins_ZipCode) VALUES
 	("Aetna", "3128889999", "401 N Sheridan Rd", "Chicago", "60602"),
@@ -79,7 +79,7 @@ INSERT INTO Insurance_Policy(Policy_Num, Group_Num, Ins_Category, InsCompany_Nam
 
 
 INSERT INTO Payment(Payment_ID, Payment_Method, Payment_Status, Payment_Date, Policy_Num) VALUES
-	("P123456", "Credit", "Done", "2014-10-20", "123456789"),
+	("P123456", "Credit Card", "Done", "2014-10-20", "123456789"),
 	("P456789", "Cash", "Done", "2014-11-13", "456789012");
 
 
@@ -169,7 +169,7 @@ INSERT INTO PatientsAllergies(P_SSN, AllergyId, EntryDate) VALUES
 
 INSERT INTO Medications(P_SSN, MedicineName, EntryDate) VALUES
 	("99999", "Aspirin", now()),
-	("99999", "Zantac", now()),
+	("99999", "Zantac", now()),	
 	("8778", "Advil", now()),
 	("8778", "Zantac", now());
 
@@ -202,10 +202,10 @@ INSERT INTO PatientsImmunizations(P_SSN, ImmunizationId, EntryDate) VALUES
 
 
 INSERT INTO Notes(P_SSN, EntryDate, Comments) VALUES
-	("99999", now(), "Nothing to be Noted"),
+	("99999", now(), "Nothing to be Noted"),		
 	("8778", now(), "Nothing to be noted");
-
-
+	
+	
 INSERT INTO Has_Patients(PH_SSN, P_SSN) VALUES
 	("666666", "99999"),
 	("7777555", "8778");
