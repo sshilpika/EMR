@@ -14,8 +14,8 @@ connection.connect(function(err){
   }
   console.log('Connection established');
 });
-
-connection.query('SELECT * from Allergies;', function(err, rows, fields) {
+var k = 'DLily'
+connection.query('SELECT * from Doctor Where username = ?',[k], function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
