@@ -13,12 +13,20 @@
     <input type="submit" value="Log out">
   </div>
 </form>
+<script type="text/javascript">
+	function getPatientSSN(row){
+		var ssn = row.cells[0].innerHTML;	//get SSN
+		window.location.href = "physician/patient-info.php?SSN=" + ssn;
+		//alert(x);
+	}
+</script>
+
 </head>
 
 <body style="background:#F6F9FC; font-family:Arial;">
 
 <script type="text/javascript">
-	
+
 </script>
 
 <div align="center">
