@@ -7,17 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./favicon.ico"/>
-    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="css/main.css" rel="stylesheet"/>
     <link type="text/css" href="css/login_page.css" rel="stylesheet"/>
     <title>Login Page</title>
 
  </head>
  <body>
+ <!--<div class="login-form">-->
  	<div class="wrapper">
 	    <form class ="form-signin" action="/say_hello" method="POST">
 	    	<h2 class="form-signin-heading">Please login</h2>
 	      <div class="form-group">
-	        <label for="username">UserName: <input class="form-control" type="text" name="username"
+	        <label for="username">User Name: <input class="form-control" type="text" name="username"
 	            id="username" placeholder="Username" required autofocus></label>
 	      </div>
 	      <div class="form-group">
@@ -26,7 +27,7 @@
 	      </div>
 	      <div class="form-group">
 	        <label for="loginas">Login as:
-	        	<select class="form-control" name="loginas" id="loginas" style="width: 215px" required>
+	        	<select class="form-control" name="loginas" id="loginas">
 				  <option disabled selected></option>
 				  <option value="patient">Patient</option>
 				  <option value="doctor">Doctor</option>
@@ -39,5 +40,6 @@
 	      </div>
 	    </form>
 	</div>
+ <!--</div>-->
   </body>
 </html>

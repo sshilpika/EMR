@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
   host     : '127.0.0.1',
   port: 3306,
   user     : 'root',
-  password : 'root08',
+  password : 'root0808',
   database : 'EMR'
 });
 app.engine('handlebars', handlebars.engine);
@@ -34,10 +34,17 @@ app.post('/say_hello', function (req, res) {
           }
     console.log('Connection established');
     });
-  connection.query('CALL findPatientsByPhysicianId("?")',[55555], function(err, rows, fields) {
+  connection.query('SELECT person.SSN,'+
+                    		'person.First_Name, '+
+                    		'person.Last_Name, '+
+                    		'person.Birth_Date, '+
+                    		'person.Gender, '+
+                    		'patient.Current_Status '+
+                    	'FROM Person person, Patient patient '+
+                    	'WHERE patient.D_SSN =? AND patient.SSN = person.SSN',[55555], function(err, rows, fields) {
     if (!err){
-      //console.log('1 ',rows[0]);
-      res.render('patient-table',{result: rows[0]});
+      console.log('1 ',rows);
+      res.render('patient-table',{result: rows});
       //console.log('2 ',rows[0][0].SSN);
     }else
       console.log(err);
@@ -50,10 +57,10 @@ app.post('/say_hello', function (req, res) {
 app.get('/patient-details',function(req,res){
 
     var demog_query = 'SELECT First_Name, Last_Name, Gender, Birth_Date, SSN, Home_Address, City, State, ZipCode, Home_Phone FROM Person WHERE SSN = ?'
-    var pre_query = 'SELECT patient.EntryDate, pre.Value FROM PreExistingConditions pre, PatientsPreConditions patient WHERE patient.P_SSN = ? AND pre.Id = patient.PreConditionId ORDER BY patient.EntryDate DESC';
+    //var pre_query = 'SELECT patient.EntryDate, pre.Value FROM PreExistingConditions pre, PatientsPreConditions patient WHERE patient.P_SSN = ? AND pre.Id = patient.PreConditionId ORDER BY patient.EntryDate DESC';
   connection.query(demog_query,[req.query.ssn], function(err, rows, fields) {
     if (!err){
-      console.log('1 ',rows[0]);
+      console.log('DEMO1 ',rows);
       res.render('patient-demographics',{layout:'patient-info' ,result:rows[0]});
      console.log('2 ',rows[0].First_Name);
     }else
@@ -61,12 +68,46 @@ app.get('/patient-details',function(req,res){
     });
     /*connection.query(pre_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
-        console.log('1 ',rows[0]);
+        console.log('precon1 ',rows[0]);
         res.render('patient-preconditions',{layout:null ,result:rows[0]});
        //console.log('2 ',rows[0].Value);
       }else
         console.log(err);
       });*/
+
+  //connection.end();
+
+})
+
+app.get('/patient-precond',function(req,res){
+    console.log('inside patient pre conditions');
+    var pre_query = 'SELECT patient.EntryDate, pre.Value FROM PreExistingConditions pre, PatientsPreConditions patient WHERE patient.P_SSN = ? AND pre.Id = patient.PreConditionId ORDER BY patient.EntryDate DESC';
+
+    connection.query(pre_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-preconditions',{layout:'pre-condition-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+
+app.get('/patient-allergies',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT patient.EntryDate, allergies.Value FROM Allergies allergies, PatientsAllergies patient WHERE patient.P_SSN = ? AND allergies.Id = patient.AllergyId ORDER BY patient.EntryDate DESC';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-allergies',{layout:'allergies-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
 
   connection.end();
 
