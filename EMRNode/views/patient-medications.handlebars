@@ -1,0 +1,18 @@
+{{#section 'medications'}}
+<!-- Show the list of pre-existing conditions -->
+    <ul style="list-style-type:square">
+      {{#each result}}
+        <li>
+            {{MedicineName}}
+            <button onclick="popUpMedication(this)">Edit</button>
+            <button onclick="deleteMedication(this)">Delete</button>
+        </li>
+        <br/>
+        {{/each}}
+    </ul>
+
+
+<!-- Add new item Button -->
+    <p><button onclick="addNewMedication(this)">Add New Item</button></p>
+
+{{/section}}

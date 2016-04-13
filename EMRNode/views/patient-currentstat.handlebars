@@ -1,0 +1,17 @@
+{{#section 'currentstat'}}
+<!-- Show the list of immunizations conditions -->
+    <ul style="list-style-type:square">
+      {{#each result}}
+        <li>
+            {{Current_Status}}
+            <button onclick="popUpImmunization(this)">Edit</button>
+            <button onclick="deleteImmunization(this)">Delete</button>
+        </li>
+        <br/>
+{{/each}}
+    </ul>
+
+
+<!-- Add new item Button -->
+    <p><button onclick="addNewImmunization(this)">Add New Item</button></p>
+{{/section}}

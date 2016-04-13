@@ -1,0 +1,44 @@
+{{#section 'visits'}}
+<table width="100%" style="border:1px solid black">
+    <tr>
+        <!-- Left Panel -->
+        <td width="20%">
+        Select a Date:
+            <div id="dateVisit" style="border:thin dotted black">
+                <table id = "dateTableVisit" width="100%">
+                {{#each result}}
+                    <tr onclick="populateForm(this)" style="cursor:pointer">
+                        <td>{{Date_Time}}</td>
+                    </tr>
+                {{/each}}
+                </table>
+            </div>
+        </td>
+
+
+
+        <!-- Detail Right Panel-->
+        <td width="80%">
+        Detail:
+            <?php include 'visitFormToDisplay.php'; ?>
+        </td>
+
+    </tr>
+</table>
+
+
+
+
+<!-- Add new item Button -->
+    <p><button onclick="addNewVisit(this)">Add New Visit</button></p>
+
+
+
+<!-- Pop-Up screen -->
+    <div id="light7" class="white_content">
+        <?php include 'visitFormToAdd.php'; ?>
+    </div>
+
+    <div id="fade7" class="black_overlay"></div>
+
+{{/section}}

@@ -66,17 +66,6 @@ app.get('/patient-details',function(req,res){
     }else
       console.log(err);
     });
-    /*connection.query(pre_query,[req.query.ssn], function(err, rows, fields) {
-      if (!err){
-        console.log('precon1 ',rows[0]);
-        res.render('patient-preconditions',{layout:null ,result:rows[0]});
-       //console.log('2 ',rows[0].Value);
-      }else
-        console.log(err);
-      });*/
-
-  //connection.end();
-
 })
 
 app.get('/patient-precond',function(req,res){
@@ -109,10 +98,128 @@ app.get('/patient-allergies',function(req,res){
         console.log(err);
       });
 
-  connection.end();
+  //connection.end();
 
 })
 
+app.get('/patient-medications',function(req,res){
+    console.log('inside patient medications');
+    var allergy_query = 'SELECT meds.MedicineName FROM Medications meds WHERE meds.P_SSN =? ORDER BY meds.EntryDate DESC';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-medications',{layout:'meds-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+app.get('/patient-immunizations',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT Value FROM Immunizations WHERE Id IN(SELECT ImmunizationId FROM PatientsImmunizations WHERE P_SSN =?)';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-immunizations',{layout:'immunization-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+app.get('/patient-currentstat',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT '+
+              'patient.Current_Status '+
+              'FROM '+
+              'Patient patient '+
+             'WHERE '+
+              'patient.SSN = ?';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-currentstat',{layout:'currentstat-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+
+app.get('/patient-visits',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT '+
+              'Date_Time '+
+            'FROM '+
+            '  Visit '+
+            'WHERE '+
+            '  Visit_ID '+
+            'IN '+
+            '  ('+
+            '    SELECT '+
+            '      Visit_ID '+
+            '    FROM '+
+            '      Has_Visits '+
+            '    WHERE '+
+            '      P_SSN = ? '+
+            '  )              '+
+            'ORDER BY '+
+            '  Date_Time DESC';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-visits',{layout:'visits-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+app.get('/patient-prescriptions',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT patient.EntryDate, allergies.Value FROM Allergies allergies, PatientsAllergies patient WHERE patient.P_SSN = ? AND allergies.Id = patient.AllergyId ORDER BY patient.EntryDate DESC';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-allergies',{layout:'allergies-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
+app.get('/patient-notes',function(req,res){
+    console.log('inside patient allergies');
+    var allergy_query = 'SELECT patient.EntryDate, allergies.Value FROM Allergies allergies, PatientsAllergies patient WHERE patient.P_SSN = ? AND allergies.Id = patient.AllergyId ORDER BY patient.EntryDate DESC';
+
+    connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
+      if (!err){
+        console.log('1 ',rows);
+        res.render('patient-allergies',{layout:'allergies-lay' ,result:rows});
+       console.log('2 ',rows[0]);
+      }else
+        console.log(err);
+      });
+
+  //connection.end();
+
+})
 app.get('/login.html',function(req, res){
   res.sendFile( __dirname + "/" + "login.html" );
 })

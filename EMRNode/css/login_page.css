@@ -1,5 +1,10 @@
 body {
-     background-color: lightblue !important;
+
+  background-image: url('/css/images/background.jpg');
+background-repeat: no-repeat;
+
+    /*background-size:100% 100%;*/
+     /*background-color: lightblue !important; /* background color*/
    }
 
    .wrapper {
@@ -10,8 +15,7 @@ body {
    }
 
 
-
-   .form-signin {
+   .form-signin {							/* Form Sign-in attributes*/
      max-width: 380px;
      padding: 15px 35px 45px;
      margin: 0 auto;
@@ -42,14 +46,14 @@ body {
 
 
 
-     input[type="text"] {
+     input[type="text"] {						/* text attributes*/
        margin-bottom: -1px;
        border-bottom-left-radius: 0;
        border-bottom-right-radius: 0;
      }
 
 
-     input[type="password"] {
+     input[type="password"] {					/* Password information*/
        margin-bottom: 20px;
        border-top-left-radius: 0;
        border-top-right-radius: 0;
