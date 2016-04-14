@@ -5,11 +5,10 @@
 <script src="css/physician/tab-content/tabcontent.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link href="css/tabs.css" rel="stylesheet" type="text/css" />
-<script src="js/tabs.js" type="text/javascript"></script>
+<script src="css/js/tabs.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('ul.tabs li a').on("click",function() {
-          //alert(this.id);
           var tabid = this.id;
             $.get('/patient-'+tabid+'?ssn='+$('#ssn').text(), function(list) {
                 $('div.'+tabid).html(list); // show the list

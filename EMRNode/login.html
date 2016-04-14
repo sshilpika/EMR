@@ -9,15 +9,30 @@
     <link rel="icon" href="./favicon.ico"/>
     <link type="text/css" href="css/main.css" rel="stylesheet"/>
     <link type="text/css" href="css/login_page.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <title>Login Page</title>
+    <script type="text/javascript">
+    function errorDisp() {
+      var error_message = decodeURIComponent(window.location.search.split('e=')[1]);
+        if(error_message != 'undefined'){
+          var $err_m = $("<p>");
+          $err_m.html(error_message);
+          $err_m.hide();
+          $(".login-fail").append($err_m);
+          $err_m.fadeIn("slow")
+        }
 
+    }
+
+    </script>
  </head>
- <body>
+ <body onload="errorDisp()">
 
  <!--<div class="login-form">-->
  	<div class="wrapper">
     <img id="logo" src="css/images/logo.png" alt="EMR Logo" style="width:300px;height:150px;" align="middle">
     <h1> <font face="verdana" color="green">Electronic Medical Record System</font> </h1>
+      <div class='login-fail'></div>
 	    <form class ="form-signin" action="/say_hello" method="POST">
 	    	<h2 class="form-signin-heading">Please login</h2>
 	      <div class="form-group">
@@ -59,5 +74,7 @@
       </div>
     </div>
   </div>
+
+
   </body>
 </html>
