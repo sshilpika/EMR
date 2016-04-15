@@ -2,43 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e0662b9-0299-4c0d-a2b1-1b11949daf6d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/css/popup.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/css/popup.css.copy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/css/tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/css/visits.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/js/jquery-1.11.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/js/popup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/js/popup.js.old" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/js/tabs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/patient-info.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/patient-table.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/tabcontent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template1/tabbg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template1/tabcontent.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template2/tabbg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template2/tabbg2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template2/tabcontent.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template3/tabcontent.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template4/tabcontent.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template5/tabcontent.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template6/tabbg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EMRNode/physician/tab-content/template6/tabcontent.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/.gitignore" afterPath="$PROJECT_DIR$/EMRNode/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/login_page.css" afterPath="$PROJECT_DIR$/EMRNode/css/login_page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template1/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template1/tabcontent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template2/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template2/tabcontent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template3/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template3/tabcontent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template4/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template4/tabcontent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template5/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template5/tabcontent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template6/tabcontent.css" afterPath="$PROJECT_DIR$/EMRNode/css/physician/tab-content/template6/tabcontent.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/index.js" afterPath="$PROJECT_DIR$/EMRNode/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/login.html" afterPath="$PROJECT_DIR$/EMRNode/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/views/layouts/patient-info.handlebars" afterPath="$PROJECT_DIR$/EMRNode/views/layouts/patient-info.handlebars" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EMRNode/views/patient-demographics.handlebars" afterPath="$PROJECT_DIR$/EMRNode/views/patient-demographics.handlebars" />
     </list>
     <ignored path="EMR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,23 +27,23 @@
         <entry file="file://$PROJECT_DIR$/EMRNode/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="38" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="38" />
+              <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patient-info.handlebars" pinned="false" current-in-tab="true">
+      <file leaf-file-name="patient-info.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EMRNode/views/layouts/patient-info.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95726496">
-              <caret line="64" column="35" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patient-demographics.handlebars" pinned="false" current-in-tab="false">
+      <file leaf-file-name="patient-demographics.handlebars" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EMRNode/views/patient-demographics.handlebars">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -123,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/EMRNode/stuff.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -218,70 +182,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="EMR" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMRNode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMRNode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EMRNode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -646,7 +546,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -656,7 +556,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -871,7 +771,7 @@
     <entry file="file://$PROJECT_DIR$/EMRNode/stuff.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -900,26 +800,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EMRNode/views/patient-demographics.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EMRNode/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="38" />
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EMRNode/views/layouts/patient-info.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95726496">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EMRNode/views/patient-demographics.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

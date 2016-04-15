@@ -11,7 +11,7 @@ function populateVisit(dateSelectedVisit){
 
   $.when($deferredVisits).done(function(response){
       //clear visit by date
-      console.log(response+"!!!!!!!!!")
+      console.log(response+"!!!!!!!!!");
       $("td.visit-by-date").empty();
       //get travelNotes
       var $travelNotes = response;
@@ -58,7 +58,7 @@ function populateVisit(dateSelectedVisit){
               });//end of load
             });
 
-          }
+          }//end of if
         });//end of forEach
       //});//end of load
 

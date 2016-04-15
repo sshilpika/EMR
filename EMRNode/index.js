@@ -6,9 +6,6 @@ var mysql           = require('mysql');
 var mongoose        = require('mongoose');
 var bcrypt          = require('bcrypt-nodejs');
 
-//defining login page
-//var team
-
 var connection = mysql.createConnection({
   host     : '127.0.0.1',
   port     : 3306,
@@ -74,7 +71,6 @@ app.post('/say_hello', function (req, res) {
 app.get('/patient-details',function(req,res){
 
     var demog_query = 'SELECT First_Name, Last_Name, Gender, Birth_Date, SSN, Home_Address, City, State, ZipCode, Home_Phone FROM Person WHERE SSN = ?'
-    //var pre_query = 'SELECT patient.EntryDate, pre.Value FROM PreExistingConditions pre, PatientsPreConditions patient WHERE patient.P_SSN = ? AND pre.Id = patient.PreConditionId ORDER BY patient.EntryDate DESC';
   connection.query(demog_query,[req.query.ssn], function(err, rows, fields) {
     if (!err){
       console.log('DEMO1 ',rows);
@@ -115,8 +111,6 @@ app.get('/patient-allergies',function(req,res){
         console.log(err);
       });
 
-  //connection.end();
-
 })
 
 app.get('/patient-medications',function(req,res){
@@ -132,8 +126,6 @@ app.get('/patient-medications',function(req,res){
         console.log(err);
       });
 
-  //connection.end();
-
 })
 app.get('/patient-immunizations',function(req,res){
     console.log('inside patient allergies');
@@ -147,9 +139,6 @@ app.get('/patient-immunizations',function(req,res){
       }else
         console.log(err);
       });
-
-  //connection.end();
-
 })
 app.get('/patient-currentstat',function(req,res){
     console.log('inside patient allergies');
@@ -202,8 +191,6 @@ app.get('/patient-visits',function(req,res){
         console.log(err);
       });
 
-  //connection.end();
-
 })
 
 app.get('/visitsByDate',function(req,res){
@@ -221,6 +208,21 @@ app.get('/visitsByDate',function(req,res){
         console.log(err);
       });
 })
+
+app.get('/getPatientNotes',function(req,res){
+  console.log('inside patient notes by date');
+  var date = new Date(req.query.date);
+  var p_notes_query = 'SELECT Comments FROM Notes WHERE P_SSN =? AND EntryDate =?';
+  connection.query(p_notes_query,[req.query.ssn, date], function(err, rows, fields) {
+    if (!err){
+      console.log('1 ',rows);
+      res.json(rows);
+     console.log('2 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
 
 app.get('/getDiagnosis',function(req,res){
     console.log('inside patient diagnosis by date');
@@ -271,20 +273,19 @@ app.get('/patient-prescriptions',function(req,res){
 })
 app.get('/patient-notes',function(req,res){
     console.log('inside patient allergies');
-    var allergy_query = 'SELECT patient.EntryDate, allergies.Value FROM Allergies allergies, PatientsAllergies patient WHERE patient.P_SSN = ? AND allergies.Id = patient.AllergyId ORDER BY patient.EntryDate DESC';
-
+    var allergy_query = 'SELECT EntryDate FROM Notes WHERE P_SSN =? ORDER BY EntryDate DESC';
     connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-allergies',{layout:'allergies-lay' ,result:rows});
+        res.render('patient-notes',{layout:'notes-lay' ,result:rows});
        console.log('2 ',rows[0]);
       }else
         console.log(err);
       });
 
-  //connection.end();
-
 })
+
+
 app.get('/login.html',function(req, res){
   res.sendFile( __dirname + "/" + "login.html" );
 })

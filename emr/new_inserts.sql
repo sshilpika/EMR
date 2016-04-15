@@ -6,39 +6,39 @@ Alter table pharmacist add username tinytext FIRST;
 alter table pharmacist add password char(255) after username;
 
 
-  
-  
+
+
 UPDATE Patient
 SET username = 'Kmindy',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu',
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6',
 	image = '/emr/patient/img/KMindy.png'
 where SSN = 8778;
 
-  
+
 UPDATE Patient
 SET username = 'SJohn',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu',
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6',
 image = '/emr/patient/img/SJohn.png'
 where SSN = 99999;
 
 UPDATE pharmacist
 SET username = 'CClaudia',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu'
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 666666;
 
 UPDATE pharmacist
 SET username = 'RTerry',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu'
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 7777555;
 
 UPDATE doctor
 SET username = 'DLily',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu'
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 44444;
 
 UPDATE doctor
 SET username = 'TJacob',
- 	password = '$2y$10$B84LXKQty3QCymJgnB4Zd.1WPRJnjo2ZnLogv8DAUSUS0ZdceDcXu'
+ 	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 55555;
 
 
