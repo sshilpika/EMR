@@ -1,0 +1,28 @@
+<!-- Pop-Up screen-->
+
+    <div id="light3" class="white_content">
+        Allergies:
+
+        <select id="allergyList">
+            <option selected="selected">Select an Item</option>
+
+              {{#each result}}
+              <option value="">
+                {{Value}}
+              </option>
+          {{/each}}
+        </select>
+
+        <button id="btnSave3" onclick="updateAllergy()">Save</button>
+
+        <br/>
+        <br/>
+        <!--<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>-->
+       <a href = "javascript:void(0)" onclick = "closeAllergy()">Close</a>
+
+        <br/>
+        <br/>
+        <i><div id="bottomLabel3"></div></i>
+    </div>
+
+    <div id="fade3" class="black_overlay"></div>

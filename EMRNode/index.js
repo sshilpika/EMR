@@ -285,6 +285,38 @@ app.get('/patient-notes',function(req,res){
 
 })
 
+app.get('/getAllergies',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="SELECT Value FROM Allergies ORDER BY Value";
+  connection.query(allergies_query,function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/saveAllergyEdit',function(req,res){
+  console.log('save all allergies');
+  var allergies_query ="UPDATE PatientsAllergies SET AllergyId = (SELECT Id FROM Allergies WHERE Value =?),"+
+          "  EntryDate = now()  "+
+          "WHERE "+
+          "  P_SSN =?"+
+          " AND "+
+          "  AllergyId "+
+          "IN (SELECT Id FROM Allergies WHERE Value =?)";
+  connection.query(allergies_query,[req.query.al2,req.query.ssn,req.query.al1],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
 
 app.get('/login.html',function(req, res){
   res.sendFile( __dirname + "/" + "login.html" );

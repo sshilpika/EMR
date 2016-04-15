@@ -1,13 +1,16 @@
 
 {{#section 'allergies'}}
-<!-- Show the list of pre-existing conditions -->
+<link rel="stylesheet" type="text/css" href="css/allergies-popup.css">
+<script type="text/javascript" src='css/js/edit-delete-allergy.js'></script>
 
+<!-- Show the list of pre-existing conditions -->
+<div id='edit-message'></div>
     <ul style="list-style-type:square">
     {{#each result}}
         <li>
             {{Value}}
-            <button onclick="popUpAllergy(this)">Edit</button>
-            <button onclick="deleteAllergy(this)">Delete</button>
+            <button class='allergy-edit'>Edit</button>
+            <button class='allergy-delete'>Delete</button>
         </li>
         <br/>
       {{/each}}
@@ -16,44 +19,34 @@
 
 <!-- Add new item Button -->
     <p><button onclick="addNewAllergy(this)">Add New Item</button></p>
+<!--script type='text/javascript' src='edits.js'></script-->
 
+<!-- modal window pop up-->
 
+<div id="myModal" class="modal">
 
-
-<!-- Pop-Up screen-->
-  <!--  <?php include 'functions/getAllergyList.php'; ?>
-
-    <div id="light3" class="white_content">
-        Allergies:
-
-        <select id="allergyList">
-            <option selected="selected">Select an Item</option>
-
-        <?php
-            $result = getAllergyList();
-            while($row = $result->fetch()){
-        ?>
-              <option value="<?php echo $row['Value']; ?>">
-                <?php echo $row['Value']; ?>
-              </option>
-          <?php
-            }
-          ?>
-        </select>
-
-        <button id="btnSave3" onclick="updateAllergy()">Save</button>
-
-        <br/>
-        <br/>-->
-        <!--<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>-->
-      <!--  <a href = "javascript:void(0)" onclick = "closeAllergy()">Close</a>
-
-        <br/>
-        <br/>
-        <i><div id="bottomLabel3"></div></i>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">×</span>
+      <h2>Allergies</h2>
     </div>
+    <div class="modal-body">
+      <select id="allergyList">
+          
 
-    <div id="fade3" class="black_overlay"></div> -->
+      </select>
+
+      <button id="allergySave">Save</button>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div>
+
+
 
 <!--******************************************-->
   {{/section}}
