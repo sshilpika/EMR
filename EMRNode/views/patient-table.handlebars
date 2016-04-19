@@ -7,7 +7,7 @@
   	}
   </script>
 <table id="patientTable" name="patientTable" border="1" cellpadding="3" cellspacing="0">
-	<caption><p><u>:: Patient's List ::</u></p></caption>
+	<caption><h2><u>Patient's List</u></h2></caption>
 
 	<thead>
     	<tr>
@@ -20,7 +20,7 @@
     	</tr>
   	</thead>
     {{#each result}}
-		<tr onclick="getPatientSSN(this)" style="cursor:pointer">
+		<tr class='table-rows' onclick="getPatientSSN(this)" style="cursor:pointer">
 
 			<td style="width:100px">{{SSN}}</td>
 			<td style="width:100px">{{First_Name}}</td>

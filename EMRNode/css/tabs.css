@@ -1,15 +1,19 @@
 ﻿#window{
     width:400px;
     border:solid 1px;
-    background: #0099ff;
+
+}
+html{
+  background-image: url('/css/images/background.jpg');
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat;
+  height:120% !important;
 }
 body{
-  background-color:#0099ff;
+
+
   font-family:Arial;
-  background: -webkit-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* Standard syntax */
+
 }
 
 #title_bar{
@@ -27,4 +31,51 @@ body{
 #box{
     height: 250px;
     background: #DFDFDF;
+}
+div.patient-stuff{
+  width: 85%;
+  margin: 0 auto;
+  padding: 100px 0 40px;
+}
+div.page-def{
+  padding: 10px;
+  vertical-align: middle;
+}
+div.page-banner{
+  width: 85%;
+  height:150px;
+  margin: 0;
+
+
+}
+div.patient-top-container{
+  background-color:#0099ff;
+  font-family:Arial;
+  background: -webkit-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* Standard syntax */
+  -webkit-animation: mymove 5s infinite;
+  animation: mymove 5s infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+#logo{
+   width:40%;
+   height:90%;
+   padding:5% 30% 20% 43%;
+
 }

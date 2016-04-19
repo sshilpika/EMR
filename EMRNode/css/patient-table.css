@@ -7,16 +7,30 @@ html{
   background: -moz-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* Standard syntax */
 }
+body{
+  margin:0px;
+}
 #patientTable{
   background-color:#ffffff;
 }
 #patientTable thead{
-  background-color:#00b300;
-  background: -webkit-linear-gradient(#00b300,#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#00b300,  #b3ffb3, 	#e6ffe6); /* Standard syntax */
+  background-color:#b3ffb3;
+  background: -webkit-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient( #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#b3ffb3, 	#e6ffe6); /* Standard syntax */
   display:block;
 }
 
-#patientTable tbody { height:100%; overflow-y:scroll; display:block; }
+#patientTable tbody {
+  height:100%;
+  overflow-y:scroll;
+  display:block;
+}
+
+
+#patientTable tr.table-rows:hover {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

@@ -24,11 +24,11 @@ ul.tabs li a
     border: 1px solid #CCC;
     border-bottom-color:#B7B7B7;
     color: #000;
-    background-color:#00b300;
-    background: -webkit-linear-gradient(#00b300,#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#00b300,  #b3ffb3, 	#e6ffe6); /* Standard syntax */
+    background-color:#b3ffb3;
+    background: -webkit-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#b3ffb3, 	#e6ffe6); /* Standard syntax */
     border-radius: 3px 3px 0 0;
     outline:none;
 }
@@ -40,17 +40,19 @@ ul.tabs li a:visited
 
 ul.tabs li a:hover
 {
-    border: 1px solid #B7B7B7;
-    background:#F0F0F0 url(tabbg.gif) 0 -36px repeat-x;
+    border: 1px solid #4CAF50;
+    background:#4CAF50;
+    color:white;
 }
 
 ul.tabs li.selected a, ul.tabs li.selected a:hover
 {
     position: relative;
     top: 0px;
+    color:black;
     font-weight:bold;
     background: white;
-    border: 1px solid #B7B7B7;
+    border: 1px solid #4CAF50;
     border-bottom-color: white;
 }
 

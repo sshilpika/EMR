@@ -1,0 +1,39 @@
+#top-nav {
+  float:left;
+  width:100%;
+  overflow:hidden;
+  height:35px;
+  top:0px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  position: relative;
+  z-index: 2;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 0;
+  letter-spacing: 1px;
+
+}
+body{margin:0;}
+#logout{
+  vertical-align:middle;
+  text-align: center;
+  padding: 8px;
+
+  float: right;
+  width: 110px;
+  font-size:80%;
+  overflow: hidden;
+  height: 35px;
+  color: black;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#logout:link{
+  text-decoration: none;
+}
+
+#logout:hover{
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
