@@ -1,4 +1,4 @@
-<div align="center">
+<div class='patient-stuff' align="center">
   <script type="text/javascript">
   	function getPatientSSN(row){
   		var ssn = row.cells[0].innerHTML;	//get SSN
@@ -6,28 +6,40 @@
   		//alert(x);
   	}
   </script>
-<table id="patientTable" name="patientTable" border="1" cellpadding="3" cellspacing="0">
-	<caption><h2><u>Patient's List</u></h2></caption>
 
-	<thead>
-    	<tr>
-    		<th style="width:100px">SSN</th>
-      		<th style="width:100px">First Name</th>
-      		<th style="width:120px">Last Name</th>
-      		<th style="width:150px">Birth Date</th>
-      		<th style="width:60px">Gender</th>
-      		<th style="width:300px">Current Status</th>
+  <div class='patient-top-container'>
+  <div class='page-banner'>
+    <div class='img-logo'>
+    <img id="logo" src="css/images/logo.png" alt="EMR Logo">
+  </div>
+  </div>
+  <div class='page-def' align="center">
+      <br/>
+      <br/>
+      <label id="labelTop"><h2>Patient's List</h2> </label>
+      <b><label id="pName"></label></b>
+  </div>
+  </div>
+<table id="patientTable" name="patientTable" border="1" cellpadding="3" cellspacing="0">
+
+    	<tr class='table-head'>
+    		<th>SSN</th>
+      		<th>First Name</th>
+      		<th>Last Name</th>
+      		<th>Birth Date</th>
+      		<th>Gender</th>
+      		<th>Current Status</th>
     	</tr>
-  	</thead>
+
     {{#each result}}
 		<tr class='table-rows' onclick="getPatientSSN(this)" style="cursor:pointer">
 
-			<td style="width:100px">{{SSN}}</td>
-			<td style="width:100px">{{First_Name}}</td>
-			<td style="width:120px">{{Last_Name}}</td>
-			<td style="width:150px">{{formatDate Birth_Date "MMMM Do YYYY"}}</td>
-			<td style="width:60px">{{Gender}}</td>
-			<td style="width:300px">{{Current_Status}}</td>
+			<td>{{SSN}}</td>
+			<td>{{First_Name}}</td>
+			<td>{{Last_Name}}</td>
+			<td>{{formatDate Birth_Date "MMMM Do YYYY"}}</td>
+			<td>{{Gender}}</td>
+			<td>{{Current_Status}}</td>
 		</tr>
     {{/each}}
 </table>

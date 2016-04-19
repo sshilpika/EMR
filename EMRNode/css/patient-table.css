@@ -1,36 +1,52 @@
 html{
-  height: 100%;
-  font-family:sans-serif;
-  background-color:#0099ff;
-  background: -webkit-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* Standard syntax */
+  background-image: url('/css/images/background.jpg');
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat;
+  height:120% !important;
 }
 body{
-  margin:0px;
+  margin:0;
 }
 #patientTable{
   background-color:#ffffff;
+  margin:0 !important;
+  width:100%;
+  table-layout: fixed;
 }
-#patientTable thead{
+tr.table-head{
   background-color:#b3ffb3;
   background: -webkit-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient( #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#b3ffb3, 	#e6ffe6); /* Standard syntax */
-  display:block;
+
+}
+
+
+tr.table-rows td{
+  width: 16.6666%;
+  overflow:auto;
+  text-align: center;
+}
+tr.table-rows{
+  height:70px;
 }
 
 #patientTable tbody {
   height:100%;
   overflow-y:scroll;
-  display:block;
+
 }
 
 
-#patientTable tr.table-rows:hover {
+tr.table-rows:hover {
   background-color: #4CAF50;
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#logo{
+   width:40%;
+   height:90%;
+   padding:5% 30% 20%;
+
 }

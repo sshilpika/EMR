@@ -1,0 +1,26 @@
+div.patient-stuff{
+  width: 85%;
+  margin: 0 auto;
+  padding: 100px 0 40px;
+}
+div.page-def{
+  padding: 10px;
+  vertical-align: middle;
+}
+div.page-banner{
+  width: 85%;
+  height:150px;
+  margin: 0;
+
+
+}
+div.patient-top-container{
+  background-color:#0099ff;
+  font-family:Arial;
+  background: -webkit-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#0099ff,#33adff, #80ccff, #ccebff); /* Standard syntax */
+
+
+}
