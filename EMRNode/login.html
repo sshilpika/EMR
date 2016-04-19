@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./favicon.ico"/>
-    <link type="text/css" href="css/main.css" rel="stylesheet"/>
+    <!--link type="text/css" href="css/main.css" rel="stylesheet"/-->
     <link type="text/css" href="css/login_page.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <title>Login Page</title>
@@ -30,11 +30,11 @@
 
  <!--<div class="login-form">-->
  	<div class="wrapper">
-    <img id="logo" src="css/images/logo.png" alt="EMR Logo" style="width:300px;height:150px;" align="middle">
+    <img id="logo" src="css/images/logo.png" alt="EMR Logo" style="width:300px;height:150px;" align="center">
     <h1> <font face="verdana" color="green">Electronic Medical Record System</font> </h1>
       <div class='login-fail'></div>
 	    <form class ="form-signin" action="/say_hello" method="POST">
-	    	<h2 class="form-signin-heading">Please login</h2>
+	    	<h2 class="form-signin-heading">Please Login</h2>
 	      <div class="form-group">
 	        <label for="username">User Name: <input class="form-control" type="text" name="username"
 	            id="username" placeholder="Username" required autofocus></label>
@@ -52,9 +52,9 @@
 				  <option value="pharmacist">Pharmacist</option>
 				</select></label>
 	      </div>
-	      <div class="form-group">
+	      <div class="form-button">
 	        <input type="hidden" name="action" value="login">
-	        <input type="submit" value="Log in">
+	        <input type="submit" value="Log In">
 	      </div>
 	    </form>
 
