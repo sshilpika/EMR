@@ -1,8 +1,16 @@
 html{
    font-family:sans-serif;
-
+   background-image: url('/css/images/background.jpg');
+   background-repeat: no-repeat;
+   background-color:#0099ff;
+   background: -webkit-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(#ccebff, #80ccff, #33adff, 	#0099ff); /* Standard syntax */
    }
- body{margin:0}
+
+ body{margin:0;}
+
  a{background-color:transparent}a:active,a:hover{outline:0}
  b,strong{font-weight:700}
  h1{margin:.67em 0;font-size:2em}

@@ -1,7 +1,19 @@
 var express         = require('express');
 var databaseResults = require('./lib/connection.js')
 var app             = express();
-var handlebars      = require('express3-handlebars').create({ defaultLayout: 'main' ,helpers: {section: function(name, options){ if(!this._sections) this._sections = {}; this._sections[name] = options.fn(this); return null;} }});
+var moment = require('moment');
+var handlebars      = require('express3-handlebars').create({
+  defaultLayout: 'main' ,
+  helpers: {
+    section: function(name, options){
+       if(!this._sections) this._sections = {};
+       this._sections[name] = options.fn(this);
+       return null;},
+     formatDate: function (date, format) {
+          return moment(date).format(format);
+      }
+     }
+   });
 var mysql           = require('mysql');
 var mongoose        = require('mongoose');
 var bcrypt          = require('bcrypt-nodejs');
@@ -13,6 +25,7 @@ var connection = mysql.createConnection({
   password : 'root0808',
   database : 'EMR'
 });
+
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(require('body-parser')());
@@ -51,7 +64,14 @@ app.post('/say_hello', function (req, res) {
                               	'WHERE patient.D_SSN =? AND patient.SSN = person.SSN',[pass[0].SSN], function(err1, rows, fields) {
               if (!err1){
                 console.log('1 ',rows);
-                res.render('patient-table',{result: rows});
+                if(req.body.loginas =="doctor" || req.body.loginas =="pharmacist"){
+                  res.render('patient-table',{result: rows});
+                }else if (req.body.loginas =="patient") {
+                  patientDetails(pass[0].SSN,res);
+                }else{
+                  res.redirect('/login.html?e=' + encodeURIComponent('Incorrect username or password. Please try again.'));
+                  console.log('Invalid details');
+                }
 
               }else
                 console.log(err1);
@@ -68,10 +88,9 @@ app.post('/say_hello', function (req, res) {
 
 })
 
-app.get('/patient-details',function(req,res){
-
-    var demog_query = 'SELECT First_Name, Last_Name, Gender, Birth_Date, SSN, Home_Address, City, State, ZipCode, Home_Phone FROM Person WHERE SSN = ?'
-  connection.query(demog_query,[req.query.ssn], function(err, rows, fields) {
+function patientDetails(ssn,res){
+  var demog_query = 'SELECT First_Name, Last_Name, Gender, Birth_Date, SSN, Home_Address, City, State, ZipCode, Home_Phone FROM Person WHERE SSN = ?'
+  connection.query(demog_query,[ssn], function(err, rows, fields) {
     if (!err){
       console.log('DEMO1 ',rows);
       res.render('patient-demographics',{layout:'patient-info' ,result:rows[0]});
@@ -79,6 +98,11 @@ app.get('/patient-details',function(req,res){
     }else
       console.log(err);
     });
+}
+
+app.get('/patient-details',function(req,res){
+  patientDetails(req.query.ssn,res);
+
 })
 
 app.get('/patient-precond',function(req,res){
@@ -93,8 +117,6 @@ app.get('/patient-precond',function(req,res){
       }else
         console.log(err);
       });
-
-  //connection.end();
 
 })
 
@@ -289,6 +311,32 @@ app.get('/getAllergies',function(req,res){
   console.log('get all allergies');
   var allergies_query ="SELECT Value FROM Allergies ORDER BY Value";
   connection.query(allergies_query,function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/deleteAllergy',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="DELETE FROM PatientsAllergies WHERE P_SSN =? AND AllergyId = (SELECT Id FROM Allergies WHERE Value =?)";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/addAllergy',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="INSERT INTO PatientsAllergies(P_SSN, AllergyId, EntryDate) VALUES(?, (SELECT Id FROM Allergies WHERE Value =?), now())";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
     if (!err){
       console.log('allergies all ',rows);
       res.json(rows);

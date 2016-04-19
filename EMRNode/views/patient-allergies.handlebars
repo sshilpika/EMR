@@ -5,20 +5,21 @@
 
 <!-- Show the list of pre-existing conditions -->
 <div id='edit-message'></div>
-    <ul style="list-style-type:square">
+<div>
+    <ul class='allergiesList' style="list-style-type:square">
     {{#each result}}
         <li>
-            {{Value}}
+            <p class='allergyLi'>{{Value}}</p>
             <button class='allergy-edit'>Edit</button>
             <button class='allergy-delete'>Delete</button>
         </li>
         <br/>
       {{/each}}
     </ul>
-
+</div>
 
 <!-- Add new item Button -->
-    <p><button onclick="addNewAllergy(this)">Add New Item</button></p>
+    <p><button id="addNewAllergy">Add New Item</button></p>
 <!--script type='text/javascript' src='edits.js'></script-->
 
 <!-- modal window pop up-->
@@ -33,7 +34,7 @@
     </div>
     <div class="modal-body">
       <select id="allergyList">
-          
+
 
       </select>
 
@@ -47,6 +48,6 @@
 </div>
 
 
-
+<div id="fade3" class="black_overlay"></div>
 <!--******************************************-->
   {{/section}}

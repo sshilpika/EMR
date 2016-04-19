@@ -5,14 +5,14 @@ ul.tabs
     font-size: 0;
     margin:0;
     list-style-type: none;
-    text-align: left; /*set to left, center, or right to align the tabs as desired*/
+    text-align: center; /*set to left, center, or right to align the tabs as desired*/
 }
 
 ul.tabs li
 {
     display: inline;
     margin: 0;
-    margin-right:3px; /*distance between tabs*/
+    margin-right:0px; /*distance between tabs*/
 }
 
 ul.tabs li a
@@ -24,7 +24,11 @@ ul.tabs li a
     border: 1px solid #CCC;
     border-bottom-color:#B7B7B7;
     color: #000;
-    background: #F0F0F0 url(tabbg.gif) 0 0 repeat-x;
+    background-color:#00b300;
+    background: -webkit-linear-gradient(#00b300,#b3ffb3, 	#e6ffe6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00b300, #b3ffb3, 	#e6ffe6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00b300,  #b3ffb3, 	#e6ffe6); /* Standard syntax */
     border-radius: 3px 3px 0 0;
     outline:none;
 }
