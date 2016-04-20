@@ -320,6 +320,46 @@ app.get('/getAllergies',function(req,res){
     });
 })
 
+app.get('/getPreConditions',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="SELECT Value FROM PreExistingConditions ORDER BY Value";
+  connection.query(allergies_query,function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/getMedications',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="SELECT MedicineName FROM Medications ORDER BY MedicineName";
+  connection.query(allergies_query,[req.query.ssn],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/getImmunizations',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="SELECT Value FROM Immunizations ORDER BY Value";
+  connection.query(allergies_query,[req.query.ssn],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+
 app.get('/deleteAllergy',function(req,res){
   console.log('get all allergies');
   var allergies_query ="DELETE FROM PatientsAllergies WHERE P_SSN =? AND AllergyId = (SELECT Id FROM Allergies WHERE Value =?)";
@@ -333,6 +373,46 @@ app.get('/deleteAllergy',function(req,res){
     });
 })
 
+app.get('/deletePreCondition',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="DELETE FROM PatientsPreConditions WHERE P_SSN =? AND PreConditionId = (SELECT Id FROM PreExistingConditions WHERE Value =?)";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/deleteMedication',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="DELETE FROM Medications WHERE P_SSN =? AND MedicineName =?";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/deleteImmunizations',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="DELETE FROM PatientsImmunizations WHERE P_SSN =? AND ImmunizationId = (SELECT Id FROM Immunizations WHERE Value =?)";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+
 app.get('/addAllergy',function(req,res){
   console.log('get all allergies');
   var allergies_query ="INSERT INTO PatientsAllergies(P_SSN, AllergyId, EntryDate) VALUES(?, (SELECT Id FROM Allergies WHERE Value =?), now())";
@@ -345,6 +425,46 @@ app.get('/addAllergy',function(req,res){
       console.log(err);
     });
 })
+
+app.get('/addPreCond',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="INSERT INTO PatientsPreConditions(P_SSN, PreConditionId, EntryDate) VALUES(?, (SELECT Id FROM PreExistingConditions WHERE Value =?), now())";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/addMedications',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="INSERT INTO Medications(P_SSN, MedicineName, EntryDate) VALUES(?,?, now())";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/addImmunizations',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="INSERT INTO PatientsImmunizations(P_SSN, ImmunizationId, EntryDate) VALUES(?, (SELECT Id FROM Immunizations WHERE Value =?), now())";
+  connection.query(allergies_query,[req.query.ssn,req.query.al],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
 
 app.get('/saveAllergyEdit',function(req,res){
   console.log('save all allergies');
@@ -365,6 +485,72 @@ app.get('/saveAllergyEdit',function(req,res){
     });
 })
 
+app.get('/savePreCondEdit',function(req,res){
+  console.log('save all allergies');
+  var allergies_query ="UPDATE "+
+            "PatientsPreConditions "+
+          "SET "+
+            "PreConditionId = (SELECT Id FROM PreExistingConditions WHERE Value =?), "+
+            "EntryDate = now()  "+
+          "WHERE "+
+            "P_SSN =? "+
+          "AND "+
+          "  PreConditionId "+
+          "IN "+
+            "(SELECT Id FROM PreExistingConditions WHERE Value =?)";
+  connection.query(allergies_query,[req.query.al2,req.query.ssn,req.query.al1],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/saveMedicationsEdit',function(req,res){
+  console.log('save all allergies');
+  var allergies_query ="UPDATE "+
+            "Medications "+
+          "SET "+
+          "  MedicineName =?, "+
+            "EntryDate = now() "+
+          "WHERE "+
+          "  P_SSN =? "+
+          "AND "+
+          "  MedicineName =?";
+  connection.query(allergies_query,[req.query.al2,req.query.ssn,req.query.al1],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/saveImmunizationsEdit',function(req,res){
+  console.log('save all allergies');
+  var allergies_query ="UPDATE "+
+            "PatientsImmunizations "+
+          "SET "+
+            "ImmunizationId = (SELECT Id FROM Immunizations WHERE Value =?), "+
+            "EntryDate = now()  "+
+          "WHERE "+
+            "P_SSN =? "+
+          "AND "+
+          "  ImmunizationId "+
+          "IN "+
+            "(SELECT Id FROM Immunizations WHERE Value =?)";
+  connection.query(allergies_query,[req.query.al2,req.query.ssn,req.query.al1],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
 
 app.get('/login.html',function(req, res){
   res.sendFile( __dirname + "/" + "login.html" );

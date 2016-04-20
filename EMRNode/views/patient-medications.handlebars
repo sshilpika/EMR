@@ -1,13 +1,14 @@
 {{#section 'medications'}}
 <!-- Show the list of pre-existing conditions -->
+<div id='edit-message'></div>
 <div>
     <ul>
       {{#each result}}
         <li class='toggle'>
           <p class='medLi'>
             &nbsp;&nbsp;{{MedicineName}}
-            <button class="med-edit">Edit</button>
             <button class="med-delete">Delete</button>
+            <button class="med-edit">Edit</button>
           </p>
         </li>
         <br/>
@@ -17,5 +18,33 @@
 </div>
 <!-- Add new item Button -->
     <p><button id="addNewMedication">Add New Item</button></p>
+
+    <!-- modal window pop up-->
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h2>Medications</h2>
+        </div>
+        <div class="modal-body">
+          <select id="conditionList">
+
+
+          </select>
+
+          <button id="conditionSave">Save</button>
+        </div>
+        <div class="modal-footer">
+          <h3>Modal Footer</h3>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="fade3" class="black_overlay"></div>
 
 {{/section}}

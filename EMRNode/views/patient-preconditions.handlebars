@@ -3,6 +3,7 @@
 {{#section 'preconditions'}}
 
 <!-- Show the list of pre-existing conditions -->
+<div id='edit-message'></div>
 <div>
     <ul>
       {{#each result}}
@@ -11,8 +12,8 @@
             <p class='preLi'>
             <div class='pre-value'>&nbsp;&nbsp;{{Value}} </div>
             <div class='pre-entry-date'>{{formatDate EntryDate "MMMM Do, YYYY"}}</div>
-            <button class='pre-edit'>Edit</button>
             <button class='pre-delete'>Delete</button>
+            <button class='pre-edit'>Edit</button>
           </p>
 
         </li>
@@ -26,5 +27,35 @@
 
     <!-- Add new item Button -->
         <p><button id="addNewPreCon">Add New Item</button></p>
+
+
+        <!-- modal window pop up-->
+
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">×</span>
+              <h2>Pre-existing Conditions</h2>
+            </div>
+            <div class="modal-body">
+              <select id="conditionList">
+
+
+              </select>
+
+              <button id="conditionSave">Save</button>
+            </div>
+            <div class="modal-footer">
+              <h3>Modal Footer</h3>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div id="fade3" class="black_overlay"></div>
+
 
 {{/section}}

@@ -12,6 +12,7 @@
     $(document).ready(function() {
         $('ul.tabs li a').on("click",function() {
           var tabid = this.id;
+          $(document).unbind();
             $.get('/patient-'+tabid+'?ssn='+$('#ssn').text(), function(list) {
                 $('div.'+tabid).html(list); // show the list
 

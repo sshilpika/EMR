@@ -1,12 +1,13 @@
 {{#section 'immunizations'}}
 <!-- Show the list of immunizations conditions -->
+<div id='edit-message'></div>
     <ul style="list-style-type:square">
       {{#each result}}
         <li class='toggle'>
           <p class='immLi'>
             &nbsp;&nbsp;{{Value}}
-            <button class="imm-edit">Edit</button>
             <button class="imm-delete">Delete</button>
+            <button class="imm-edit">Edit</button>
           </p>
         </li>
         <br/>
@@ -16,4 +17,32 @@
 
 <!-- Add new item Button -->
     <p><button id="addNewImmunization">Add New Item</button></p>
+
+    <!-- modal window pop up-->
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h2>Medications</h2>
+        </div>
+        <div class="modal-body">
+          <select id="conditionList">
+
+
+          </select>
+
+          <button id="conditionSave">Save</button>
+        </div>
+        <div class="modal-footer">
+          <h3>Modal Footer</h3>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="fade3" class="black_overlay"></div>
 {{/section}}
