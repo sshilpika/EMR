@@ -169,3 +169,55 @@ $(document).on('click','#addNewAllergy',function(){
   });
 
 });
+
+function createButton(buttonClass, buttonText) {
+  //build button
+  var $button = $('<button class="'+buttonClass+'">'+buttonText+'</button>');
+  //return built button
+  return $button;
+}
+
+//check element visibility - expects single element relative to display:none
+function checkVisible(element) {
+  //check if element is hidden or not
+  if (element.is(":hidden")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//check elements exists
+function checkExist(element) {
+  //check specified elements or not - return boolean
+  if (element.length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
+/*$(document).on('click','li.toggle',function(){
+  //alert(JSON.stringify(this.parentNode.textContent));
+  if(!this.textContent.includes('Edit') && !this.textContent.includes('Delete')){
+  alert(JSON.stringify(this.textContent.split("\n")));
+
+  //check if exists
+  var buttons = $('.allergyLi button');
+
+  alert(checkExist(buttons));
+  if((checkExist(buttons) === true)){
+
+    alert('in if');
+    buttons.remove();
+    //b2.remove();
+  }else{
+    var b1 = createButton('allergy-edit','Edit');
+    var b2= createButton('allergy-delete','Delete');
+    $('p.allergyLi').append(b1);
+    $('p.allergyLi').append(b2);
+  }
+}
+});*/

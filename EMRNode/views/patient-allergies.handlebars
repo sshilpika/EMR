@@ -8,10 +8,14 @@
 <div>
     <ul class='allergiesList' style="list-style-type:square">
     {{#each result}}
-        <li>
-            <p class='allergyLi'>{{Value}}</p>
-            <button class='allergy-edit'>Edit</button>
-            <button class='allergy-delete'>Delete</button>
+        <li class='toggle'>
+
+            <p class='allergyLi'>
+                &nbsp;&nbsp;{{Value}}
+                <button class='allergy-delete'>Delete</button>
+                <button class='allergy-edit'>Edit</button>
+
+                </p>
         </li>
         <br/>
       {{/each}}
