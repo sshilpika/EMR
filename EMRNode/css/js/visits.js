@@ -1,12 +1,14 @@
 
-$(document).on('click','tr.visit-date',function(){
-   var dateSelectedVisit = this.textContent.trim();
 
+$(document).on('change','select',function(){
+
+   var dateSelectedVisit = $('option:selected', this).attr('name');;
    var ssn = $('#ssn').text();
    populateVisit(dateSelectedVisit);
 
 });
 function populateVisit(dateSelectedVisit){
+
   var $deferredVisits = $.getJSON('visitsByDate?date='+dateSelectedVisit);
 
   $.when($deferredVisits).done(function(response){
@@ -64,3 +66,9 @@ function populateVisit(dateSelectedVisit){
 
     });
 }
+
+
+$(document).on('click','#datepicker',function(){
+
+    //$( "#datepicker" ).datepicker();
+});
