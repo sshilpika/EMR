@@ -10,7 +10,7 @@
                 <table id = "dateTableVisit" width="100%">
                 {{#each result}}
                     <tr class='visit-date' style="cursor:pointer">
-                        <td>{{Date_Time}}</td>
+                        <td>{{formatDate Date_Time "MMMM Do YYYY"}}</td>
                     </tr>
                 {{/each}}
                 </table>

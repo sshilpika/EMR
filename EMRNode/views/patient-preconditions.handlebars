@@ -3,23 +3,28 @@
 {{#section 'preconditions'}}
 
 <!-- Show the list of pre-existing conditions -->
-    <ul style="list-style-type:square">
+<div>
+    <ul>
+      {{#each result}}
+        <li class='toggle'>
 
-        <li>
-
-            {{#each result}}
-            {{Value}} {{EntryDate}}
-            <button onclick="popUpPreCon(this)">Edit</button>
-            <button onclick="deletePreCon(this)">Delete</button>
-            {{/each}}
+            <p class='preLi'>
+            <div class='pre-value'>&nbsp;&nbsp;{{Value}} </div>
+            <div class='pre-entry-date'>{{formatDate EntryDate "MMMM Do, YYYY"}}</div>
+            <button class='pre-edit'>Edit</button>
+            <button class='pre-delete'>Delete</button>
+          </p>
 
         </li>
         <br/>
+        {{/each}}
+
 
     </ul>
+</div>
 
 
-
-
+    <!-- Add new item Button -->
+        <p><button id="addNewPreCon">Add New Item</button></p>
 
 {{/section}}

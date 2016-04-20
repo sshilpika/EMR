@@ -1,8 +1,9 @@
-.allergyLi{
+.immLi, .allergyLi, .preLi, .medLi,.statLi{
   padding-top: 6px;
+
 }
 
-.allergy-delete, .allergy-edit, #addNewAllergy{
+#addNewStat,.stat-edit,.stat-delete,#addNewImmunization,.imm-delete, .imm-edit,.allergy-delete, .allergy-edit, #addNewAllergy, .pre-edit, .pre-delete, #addNewPreCon,.med-delete, .med-edit, #addNewMedication{
   margin-right:10px;
   margin-left:10px;
   display:inline-block;
@@ -20,12 +21,19 @@
   background-color:rgb(230, 230, 230);
   border: 2px solid rgb(230, 230, 230);
 }
-#addNewAllergy{
+#addNewStat,#addNewAllergy, #addNewPreCon, #addNewMedication, #addNewImmunization{
   float:left !important;
   width:100px !important;
 }
 
-.allergy-edit:hover, .allergy-delete:hover, #addNewAllergy:hover{
+div.pre-value{
+  display:inline-block;margin-right:10px;
+}
+div.pre-entry-date{
+  display:inline-block;
+}
+
+#addNewStat:hover,.stat-edit:hover,.stat-delete:hover,#addNewImmunization:hover,.imm-delete:hover, .imm-edit:hover,.allergy-edit:hover, .allergy-delete:hover, #addNewAllergy:hover,.pre-edit:hover, .pre-delete:hover, #addNewPreCon:hover, .med-edit:hover, .med-delete:hover, #addNewMedication:hover{
   background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50;

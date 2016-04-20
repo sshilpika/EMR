@@ -2,16 +2,18 @@
 <!-- Show the list of immunizations conditions -->
     <ul style="list-style-type:square">
       {{#each result}}
-        <li>
-            {{Value}}
-            <button onclick="popUpImmunization(this)">Edit</button>
-            <button onclick="deleteImmunization(this)">Delete</button>
+        <li class='toggle'>
+          <p class='immLi'>
+            &nbsp;&nbsp;{{Value}}
+            <button class="imm-edit">Edit</button>
+            <button class="imm-delete">Delete</button>
+          </p>
         </li>
         <br/>
-{{/each}}
+        {{/each}}
     </ul>
 
 
 <!-- Add new item Button -->
-    <p><button onclick="addNewImmunization(this)">Add New Item</button></p>
+    <p><button id="addNewImmunization">Add New Item</button></p>
 {{/section}}
