@@ -13,3 +13,63 @@ select.date-select {
    -moz-border-radius: 5px;
    border-radius: 5px;
    }
+   td{
+     text-align: left;
+     padding: 5px;
+
+   }
+   tr{
+     height:40px;
+   }
+   table.visit-by-date{
+     padding-bottom: 30px;
+   }
+
+   tr:nth-child(odd){
+     background-color: #f2f2f2;
+     top:3px;
+   	background-image: linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+   	background-image: -o-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+   	background-image: -moz-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+   	background-image: -webkit-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+   	background-image: -ms-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+   	background-image: -webkit-gradient(
+   	linear,
+   	left bottom,
+   	left top,
+   	color-stop(0, rgb(204, 204, 204)),
+   	color-stop(1, rgb(217, 217, 217))
+   	);
+   	-webkit-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+   	-moz-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+   	-o-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+   	box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+   }
+
+#addNewVisits{
+  margin-right:10px;
+  margin-left:10px;
+  margin-bottom:0;
+  vertical-align:middle;
+  float: right;
+  z-index: 1;
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding:2px;
+  width:100px;
+  height:30px;
+  border-radius: 2px;
+  text-align: center;
+  background-color:rgb(230, 230, 230);
+  border: 2px solid rgb(230, 230, 230);
+  float:left;
+
+}
+
+#addNewVisits:hover {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

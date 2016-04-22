@@ -1,14 +1,13 @@
-$(document).on('click','tr.note-date',function(){
+$(document).on('change','select.note-select',function(){
 
-    var dateSelectedNote = this.textContent.trim();
-   getNote(dateSelectedNote);
+    var dateSelectedNote = $('option:selected', this).attr('name');
+    getNote(dateSelectedNote);
 
 });
 function getNote(dateSelectedNote){
 
     var ssn = $('#ssn').text();
     var $deferredNotes = $.getJSON('getPatientNotes?date='+dateSelectedNote+'&ssn='+ssn);
-  //var $deferredNoteDates = $.getJSON('getPatientNotes?date='dateSelectedNote+'&ssn='+ssn,function(){});
     $.when($deferredNotes).done(function(response){
         var $notes = response;
           $("#noteBox").empty();

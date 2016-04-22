@@ -1,7 +1,8 @@
 
 {{#section 'visits'}}
 
-<p class='date'>Date:
+
+<p class='date'>Select a Date::
   <select class='date-select'>
     <option>
     </option>
@@ -12,15 +13,11 @@
     {{/each}}
   </select>
 </p>
-<table width="100%">
-    <tr>
-    <td class='visit-by-date'></td>
+<br/>
+<table class='visit-by-date' width="100%">
 
-    </tr>
 </table>
 
-<!-- Add new item Button -->
-    <p><button onclick="addNewVisit(this)">Add New Visit</button></p>
 
 
 
@@ -28,7 +25,8 @@
     <div id="light7" class="white_content">
 
     </div>
-
+    <!-- Add new item Button -->
+        <div><button id="addNewVisits">Add New Visit</button></div>
     <div id="fade7" class="black_overlay"></div>
 
 {{/section}}

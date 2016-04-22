@@ -1,36 +1,33 @@
 <!--<table width="100%" border="1" cellpadding="3" cellspacing="0">    -->
 {{#section 'notes'}}
 <script type="text/javascript" src="css/js/notes.js"></script>
+<p class='date'>Select a Date::
+  <select class='note-select' id='dateNote'>
+    <option>
+    </option>
+    {{#each result}}
+        <option class='note-date' name="{{EntryDate}}">
+            {{formatDate EntryDate "MMMM Do YYYY"}}
+        </option>
+    {{/each}}
+  </select>
+</p>
+<br/>
+
 <table width="100%" style="border:1px solid black">
     <tr>
-        <!-- Left Panel -->
-        <td width="20%">
-        Select a Date:
-            <div id="dateNote" style="border:thin dotted black">
-                <table id = "dateTableNote" width="100%">
-                {{#each result}}
-                    <tr class='note-date' style="cursor:pointer">
-                        <td>{{EntryDate}}</td>
-                    </tr>
-                {{/each}}
-                </table>
-            </div>
-        </td>
-
-
 
         <!-- Detail Right Panel-->
-        <td width="80%">
-        Detail:
+        <td>
             <div id="detailNote">
-                <div id="noteBox" contenteditable="false" style="border:thin dotted black">
+                <div id="noteBox" contenteditable="false">
                 <p>
                     <!-- Child Node 1 -->
                 </p>
                 </div>
 
                 <p align="right">
-                    <button id="btnEdit9" onclick="popUpNote(this)">Edit This Note</button>
+                    <button class='noteEdits' id="popUpNote">Edit This Note</button>
                 </p>
             </div>
         </td>
@@ -41,7 +38,7 @@
 
 
 <!-- Add new item Button -->
-    <p><button onclick="addNewNote(this)">Add New Note</button></p>
+    <p><button class='noteEdits' id="addNewNote">Add New Note</button></p>
 
 <!-- Pop-Up screen -->
     <div id="light9" class="white_content">

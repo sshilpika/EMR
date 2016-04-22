@@ -1,0 +1,36 @@
+td{
+  text-align: left;
+  padding: 5px;
+
+}
+tr{
+  height:40px;
+}
+table{
+  width:100%;
+
+}
+table.patient-details-table{
+  padding-bottom: 30px;
+}
+
+tr:nth-child(odd){
+  background-color: #f2f2f2;
+  top:3px;
+ background-image: linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+ background-image: -o-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+ background-image: -moz-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+ background-image: -webkit-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+ background-image: -ms-linear-gradient(bottom, rgb(204, 204, 204) 0%, rgb(217, 217, 217) 100%);
+ background-image: -webkit-gradient(
+ linear,
+ left bottom,
+ left top,
+ color-stop(0, rgb(204, 204, 204)),
+ color-stop(1, rgb(217, 217, 217))
+ );
+ -webkit-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+ -moz-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+ -o-box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+ box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
+}
