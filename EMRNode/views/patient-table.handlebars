@@ -1,12 +1,6 @@
 <div class='patient-stuff' align="center">
-  <script type="text/javascript">
-  	function getPatientSSN(row){
-  		var ssn = row.cells[0].innerHTML;	//get SSN
-  		window.location.href = "/patient-details?ssn=" + ssn;
-  		//alert(x);
-  	}
-  </script>
 
+<div id='userTypeDetails' style='display:none'>{{type.type}}</div>
   <div class='patient-top-container'>
   <div class='page-banner'>
     <div class='img-logo'>
@@ -24,7 +18,7 @@
 
     	<tr class='table-head'>
     		<th>SSN</th>
-      		<th>First Name</th>
+      		<th>First Name {{type.type}}</th>
       		<th>Last Name</th>
       		<th>Birth Date</th>
       		<th>Gender</th>
@@ -43,4 +37,13 @@
 		</tr>
     {{/each}}
 </table>
+<script type="text/javascript">
+  function getPatientSSN(row){
+    var ssn = row.cells[0].innerHTML;	//get SSN
+    var userType = document.getElementById('userTypeDetails');
+    console.log('user type - patient table+'+userType);
+    window.location.href = "/patient-details?ssn=" + ssn+"&userType="+userType;
+    //alert(x);
+  }
+</script>
 </div>

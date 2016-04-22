@@ -63,11 +63,13 @@ app.post('/say_hello', function (req, res) {
                               	'FROM Person person, Patient patient '+
                               	'WHERE patient.D_SSN =? AND patient.SSN = person.SSN',[pass[0].SSN], function(err1, rows, fields) {
               if (!err1){
+                console.log('USER TYPE::'+req.body.loginas);
                 console.log('1 ',rows);
-                if(req.body.loginas =="doctor" || req.body.loginas =="pharmacist"){
-                  res.render('patient-table',{result: rows});
-                }else if (req.body.loginas =="patient") {
-                  patientDetails(pass[0].SSN,res);
+                var userType = req.body.loginas;
+                if(userType =="doctor" || userType =="pharmacist"){
+                  res.render('patient-table',{result: rows,type:{type:'doctor'}});
+                }else if (userType =="patient") {
+                  patientDetails(pass[0].SSN,userType,res);
                 }else{
                   res.redirect('/login.html?e=' + encodeURIComponent('Incorrect username or password. Please try again.'));
                   console.log('Invalid details');
@@ -88,31 +90,36 @@ app.post('/say_hello', function (req, res) {
 
 })
 
-function patientDetails(ssn,res){
+function patientDetails(ssn,userType,res){
   var demog_query = 'SELECT First_Name, Last_Name, Gender, Birth_Date, SSN, Home_Address, City, State, ZipCode, Home_Phone FROM Person WHERE SSN = ?'
   connection.query(demog_query,[ssn], function(err, rows, fields) {
     if (!err){
       console.log('DEMO1 ',rows);
-      res.render('patient-demographics',{layout:'patient-info' ,result:rows[0]});
-     console.log('2 ',rows[0].First_Name);
+      res.render('patient-demographics',{layout:'patient-info' ,result:rows[0],type:{type:userType}});
+      console.log('2 ',rows[0].First_Name);
     }else
       console.log(err);
     });
 }
 
 app.get('/patient-details',function(req,res){
-  patientDetails(req.query.ssn,res);
+  patientDetails(req.query.ssn,req.query.userType,res);
 
 })
 
 app.get('/patient-precond',function(req,res){
     console.log('inside patient pre conditions');
+    var userType = req.query.userType;
     var pre_query = 'SELECT patient.EntryDate, pre.Value FROM PreExistingConditions pre, PatientsPreConditions patient WHERE patient.P_SSN = ? AND pre.Id = patient.PreConditionId ORDER BY patient.EntryDate DESC';
 
     connection.query(pre_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-preconditions',{layout:'pre-condition-lay' ,result:rows});
+        if(userType =='patient'){
+          res.render('patient-views/patient-preconditions',{layout:'pre-condition-lay' ,result:rows});
+        }else {
+            res.render('doctor-views/patient-preconditions',{layout:'pre-condition-lay' ,result:rows});
+          }
        console.log('2 ',rows[0]);
       }else
         console.log(err);
@@ -123,11 +130,16 @@ app.get('/patient-precond',function(req,res){
 app.get('/patient-allergies',function(req,res){
     console.log('inside patient allergies');
     var allergy_query = 'SELECT patient.EntryDate, allergies.Value FROM Allergies allergies, PatientsAllergies patient WHERE patient.P_SSN = ? AND allergies.Id = patient.AllergyId ORDER BY patient.EntryDate DESC';
-
+    var userType = req.query.userType;
     connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-allergies',{layout:'allergies-lay' ,result:rows});
+        if(userType =='patient'){
+          res.render('patient-views/patient-allergies',{layout:'allergies-lay' ,result:rows});
+        }else {
+            res.render('doctor-views/patient-allergies',{layout:'allergies-lay' ,result:rows});
+          }
+
        console.log('2 ',rows[0]);
       }else
         console.log(err);
@@ -138,11 +150,15 @@ app.get('/patient-allergies',function(req,res){
 app.get('/patient-medications',function(req,res){
     console.log('inside patient medications');
     var allergy_query = 'SELECT meds.MedicineName FROM Medications meds WHERE meds.P_SSN =? ORDER BY meds.EntryDate DESC';
-
+    var userType = req.query.userType;
     connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-medications',{layout:'meds-lay' ,result:rows});
+        if(userType =='patient'){
+            res.render('patient-views/patient-medications',{layout:'meds-lay' ,result:rows});
+        }else {
+            res.render('doctor-views/patient-medications',{layout:'meds-lay' ,result:rows});
+          }
        console.log('2 ',rows[0]);
       }else
         console.log(err);
@@ -152,11 +168,15 @@ app.get('/patient-medications',function(req,res){
 app.get('/patient-immunizations',function(req,res){
     console.log('inside patient allergies');
     var allergy_query = 'SELECT Value FROM Immunizations WHERE Id IN(SELECT ImmunizationId FROM PatientsImmunizations WHERE P_SSN =?)';
-
+    var userType = req.query.userType;
     connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-immunizations',{layout:'immunization-lay' ,result:rows});
+        if(userType =='patient'){
+            res.render('patient-views/patient-immunizations',{layout:'immunization-lay' ,result:rows});
+        }else {
+            res.render('doctor-views/patient-immunizations',{layout:'immunization-lay' ,result:rows});
+          }
        console.log('2 ',rows[0]);
       }else
         console.log(err);
@@ -185,6 +205,7 @@ app.get('/patient-currentstat',function(req,res){
 })
 
 app.get('/patient-visits',function(req,res){
+  var userType = req.query.userType;
     console.log('inside patient allergies');
     var allergy_query = 'SELECT '+
               'Date_Time '+
@@ -207,7 +228,11 @@ app.get('/patient-visits',function(req,res){
     connection.query(allergy_query,[req.query.ssn], function(err, rows, fields) {
       if (!err){
         console.log('1 ',rows);
-        res.render('patient-visits',{layout:'visits-lay' ,result:rows});
+        if(userType =='patient'){
+            res.render('patient-views/patient-visits',{layout:'visits-lay' ,result:rows});
+        }else {
+            res.render('doctor-views/patient-visits',{layout:'visits-lay' ,result:rows});
+          }
        console.log('2 ',rows[0]);
       }else
         console.log(err);

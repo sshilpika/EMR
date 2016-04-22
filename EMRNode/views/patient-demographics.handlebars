@@ -1,11 +1,11 @@
 {{#section 'demographics'}}
 <link rel="stylesheet" type="text/css" href="css/demographics.css">
+<div id='userType' style='display:none'>{{type.type}}</div>
 <table class='patient-details-table'>
-
 <tr><td>First Name: </td><td><b>{{result.First_Name}}</b></td></tr>
 <tr><td>Last Name: </td><td><b>{{result.Last_Name}}</b></td></tr>
 <tr><td>Gender: </td><td><b>{{result.Gender}}</b></td></tr>
-<tr><td>Birth Date: </td><td><b>{{result.Birth_Date}}</b></td></tr>
+<tr><td>Birth Date: </td><td><b>{{formatDate result.Birth_Date "MMMM Do YYYY"}}</b></td></tr>
 <tr><td>SSN: </td><td id="ssn"><b>{{result.SSN}}</b></td></tr>
 <tr><td>Home Address: </td><td><b>{{result.Home_Address}}</b></td></tr>
 <tr><td>City: </td><td><b>{{result.City}}</b></td></tr>

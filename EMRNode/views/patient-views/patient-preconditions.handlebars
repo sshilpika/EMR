@@ -1,0 +1,28 @@
+
+
+{{#section 'preconditions'}}
+<!-- Show the list of pre-existing conditions -->
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+<div id='edit-message'></div>
+<div>
+    <ul>
+      {{#each result}}
+        <li class='toggle down'>
+
+            <div class='preLi'>
+            <div class='pre-value'>&nbsp;&nbsp;{{Value}} </div>
+            <div class='pre-entry-date'>{{formatDate EntryDate "MMMM Do, YYYY"}}</div>
+
+          </div>
+
+        </li>
+        <br/>
+        {{/each}}
+
+
+    </ul>
+</div>
+
+
+
+{{/section}}

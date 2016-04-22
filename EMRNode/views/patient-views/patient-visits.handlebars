@@ -1,0 +1,21 @@
+
+{{#section 'visits'}}
+
+
+<p class='date'>Select a Date:
+  <select class='date-select'>
+    <option>
+    </option>
+    {{#each result}}
+        <option class='visit-date' name="{{Date_Time}}">
+            {{formatDate Date_Time "MMMM Do YYYY"}}
+        </option>
+    {{/each}}
+  </select>
+</p>
+<br/>
+<table class='visit-by-date' width="100%">
+
+</table>
+
+{{/section}}

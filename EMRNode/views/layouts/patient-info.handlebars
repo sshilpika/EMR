@@ -13,10 +13,15 @@
         $('ul.tabs li a').on("click",function() {
           var tabid = this.id;
           $(document).unbind();
-            $.get('/patient-'+tabid+'?ssn='+$('#ssn').text(), function(list) {
+          var userType = $('#userType').text();
+          console.log('This is the user type:'+userType);
+
+          if(tabid != null && tabid != ''){
+            $.get('/patient-'+tabid+'?ssn='+$('#ssn').text()+'&userType='+userType, function(list) {
                 $('div.'+tabid).html(list); // show the list
 
             });
+          }
         });
 
     });

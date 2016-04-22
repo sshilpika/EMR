@@ -1,0 +1,21 @@
+{{#section 'medications'}}
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+
+<div id='edit-message'></div>
+<div>
+    <ul>
+      {{#each result}}
+        <li class='toggle down'>
+          <p class='medLi'>
+            &nbsp;&nbsp;{{MedicineName}}
+
+          </p>
+        </li>
+        <br/>
+        {{/each}}
+    </ul>
+
+</div>
+
+
+{{/section}}

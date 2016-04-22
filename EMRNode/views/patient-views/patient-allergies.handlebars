@@ -1,0 +1,23 @@
+
+{{#section 'allergies'}}
+
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+<script type="text/javascript" src='css/js/edit-delete-allergy.js'></script>
+
+<div id='edit-message'></div>
+<div>
+    <ul class='allergiesList' style="list-style-type:square">
+    {{#each result}}
+        <li class='toggle down'>
+
+            <p class='allergyLi'>
+                &nbsp;&nbsp;{{Value}}
+                </p>
+        </li>
+        <br/>
+      {{/each}}
+    </ul>
+</div>
+
+
+  {{/section}}

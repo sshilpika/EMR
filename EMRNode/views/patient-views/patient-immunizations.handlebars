@@ -1,0 +1,18 @@
+{{#section 'immunizations'}}
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+
+<!-- Show the list of immunizations conditions -->
+<div id='edit-message'></div>
+    <ul style="list-style-type:square">
+      {{#each result}}
+        <li class='toggle down'>
+          <p class='immLi'>
+            &nbsp;&nbsp;{{Value}}
+
+          </p>
+        </li>
+        <br/>
+        {{/each}}
+    </ul>
+
+{{/section}}
