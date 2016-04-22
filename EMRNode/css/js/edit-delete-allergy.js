@@ -1,15 +1,18 @@
 var oldValue = '';
-$(document).on('click','button.allergy-edit',function(){
+$(document).on('click','button.allergy-edit',function(event){
+    event.stopPropagation();
     document.getElementById('allergySave').textContent='Save';
+    console.log(this.parentNode.textContent.split("\n")[1]);
     oldValue = this.parentNode.textContent.split("\n")[1].trim();
     var arr = $('.allergyLi').map(function(i, el) {
-      return $(el).text();
+      return $(el).text().split("\n")[1].trim();
     }).get();
-    getAllergies(arr);
+    getAllergies(arr,this);
 
 });
 
-function getAllergies(arr){
+function getAllergies(arr,self){
+  console.log(arr+'array of allergies');
   var $deferredAllergies = $.getJSON('getAllergies');
   $.when($deferredAllergies).done(function(response){
     console.log(JSON.stringify(response));
@@ -27,20 +30,25 @@ function getAllergies(arr){
     }
     });//end of for each
     // When the user clicks the button, open the modal
-    document.getElementById('myModal').style.display = "block";
+
+    console.log("MODAL------"+JSON.stringify($('#myModalAllergy')));
+
+    $('#myModalAllergy').show();
+    //document.getElementById('myModalAllergy').style.display = "block";
+    console.log("MODAL---AFTER---"+document.getElementById('myModalAllergy').style.display);
 
   });//end of deferred obj
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  var modal = document.getElementById('myModal');
+  var modal = document.getElementById('myModalAllergy');
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
 //close window on close button
 $(document).on('click','.close',function(){
-  document.getElementById('myModal').style.display = "none";
+  document.getElementById('myModalAllergy').style.display = "none";
 
 });
 
@@ -91,31 +99,39 @@ function updateAllergy(ssn){
 function allergyMessageFail(){
 
   $('#edit-message').empty();
+  $(document).unbind();
+  var $deferredRefreshAl = $.get('/patient-allergies?ssn='+ssn, function(list) {
+  $('div.allergies').html(list); // show the list
+
   var p =$('<p>');
+  p.attr("name", "fail");
   p.html('Failed to save changes. Please try again.');
   p.hide();
-  document.getElementById('myModal').style.display = "none";
+  document.getElementById('myModalAllergy').style.display = "none";
   $('#edit-message').append(p);
   p.fadeIn('slow');
+});
 }
 
 function allergyMessageSuccess(ssn){
 
   $('#edit-message').empty();
-  $(document).unbind();
+
   var $deferredRefreshAl = $.get('/patient-allergies?ssn='+ssn, function(list) {
       $('div.allergies').html(list); // show the list
       var p =$('<p>');
+      p.attr("name", "pass");
       p.html('Allergy changes saved');
       p.hide();
-      document.getElementById('myModal').style.display = "none";
+      document.getElementById('myModalAllergy').style.display = "none";
       $('#edit-message').append(p);
       p.fadeIn('slow');
-
+      $(document).unbind();
   });//deferred refresh obj close
 }
 
-$(document).on('click','button.allergy-delete',function(){
+$(document).on('click','button.allergy-delete',function(event){
+  //event.stopPropagation();
   var selectedLabel = this.parentNode.textContent.split("\n")[1].trim();
   //if (confirm('Are you sure you want to delete this item?')) {
       var ssn = $('#ssn').text();
@@ -126,9 +142,10 @@ $(document).on('click','button.allergy-delete',function(){
         var $deferredRefreshAl = $.get('/patient-allergies?ssn='+$('#ssn').text(), function(list) {
             $('div.allergies').html(list); // show the list
             var p =$('<p>');
+            p.attr("name", "pass");
             p.html('Allergy deleted');
             p.hide();
-            document.getElementById('myModal').style.display = "none";
+            document.getElementById('myModalAllergy').style.display = "none";
             $('#edit-message').append(p);
             p.fadeIn('slow');
 
@@ -143,9 +160,9 @@ $(document).on('click','#addNewAllergy',function(){
   document.getElementById('allergySave').textContent='Add';
   var ssn = $('#ssn').text();
   var arr = $('.allergyLi').map(function(i, el) {
-    return $(el).text();
+    return $(el).text().split("\n")[1].trim();
   }).get();
-  alert(JSON.stringify(arr));
+  console.log(JSON.stringify(arr));
   var $deferredAllergies = $.getJSON('getAllergies');
   $.when($deferredAllergies).done(function(response){
     console.log(JSON.stringify(response));
@@ -153,7 +170,7 @@ $(document).on('click','#addNewAllergy',function(){
     $('#allergyList').empty();
     $('#allergyList').append($('<option selected="selected">Select an Item</option>'));
     $allergies.forEach(function(item){
-      //alert(JSON.stringify(algs));
+      //console.log(JSON.stringify(algs));
       if(item != null && !(arr.indexOf(item.Value) > -1)){
         var op = $('<option>');
         var al = item.Value;
@@ -164,7 +181,7 @@ $(document).on('click','#addNewAllergy',function(){
     }
     });//end of for each
     // When the user clicks the button, open the modal
-    document.getElementById('myModal').style.display = "block";
+    document.getElementById('myModalAllergy').style.display = "block";
 
   });
 
@@ -200,17 +217,17 @@ function checkExist(element) {
 
 
 /*$(document).on('click','li.toggle',function(){
-  //alert(JSON.stringify(this.parentNode.textContent));
+  //console.log(JSON.stringify(this.parentNode.textContent));
   if(!this.textContent.includes('Edit') && !this.textContent.includes('Delete')){
-  alert(JSON.stringify(this.textContent.split("\n")));
+  console.log(JSON.stringify(this.textContent.split("\n")));
 
   //check if exists
   var buttons = $('.allergyLi button');
 
-  alert(checkExist(buttons));
+  console.log(checkExist(buttons));
   if((checkExist(buttons) === true)){
 
-    alert('in if');
+    console.log('in if');
     buttons.remove();
     //b2.remove();
   }else{

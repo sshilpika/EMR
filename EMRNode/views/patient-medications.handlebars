@@ -1,4 +1,17 @@
 {{#section 'medications'}}
+<script type="text/javascript">
+$(document).on('click','.medLi',function(){
+  //alert(JSON.stringify($(this).children().css('visibility')));
+  var $buttons = $(this).children();
+  if($buttons.css('visibility') == 'visible'){
+    $(this).parent().toggleClass('down');
+    $buttons.hide().css('visibility','hidden').fadeIn("slow");
+  }else {
+    $(this).parent().toggleClass('down');
+      $buttons.hide().css('visibility','visible').fadeIn("slow");
+    }
+});
+</script>
 <!-- Show the list of pre-existing conditions -->
 <div id='edit-message'></div>
 <div>
@@ -21,7 +34,7 @@
 
     <!-- modal window pop up-->
 
-    <div id="myModal" class="modal">
+    <div id="myModalMedications" class="modal" name='medications'>
 
       <!-- Modal content -->
       <div class="modal-content">
@@ -35,7 +48,7 @@
 
           </select>
 
-          <button id="conditionSave">Save</button>
+          <button id="conditionSave"  class='save'>Save</button>
         </div>
         <div class="modal-footer">
           <h3>Modal Footer</h3>

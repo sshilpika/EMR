@@ -2,11 +2,9 @@
 <!-- Show the list of immunizations conditions -->
     <ul style="list-style-type:square">
       {{#each result}}
-        <li class='toggle'>
+        <li class='toggle down'>
           <p class='statLi'>
             &nbsp;&nbsp;{{Current_Status}}
-            <button class="stat-edit">Edit</button>
-            <button class="stat-delete">Delete</button>
           </p>
         </li>
         <br/>
@@ -14,6 +12,6 @@
     </ul>
 
 
-<!-- Add new item Button -->
-    <p><button id="addNewImmunization">Add New Item</button></p>
+
+
 {{/section}}

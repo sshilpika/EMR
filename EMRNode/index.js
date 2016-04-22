@@ -359,6 +359,19 @@ app.get('/getImmunizations',function(req,res){
     });
 })
 
+app.get('/getCurrentStat',function(req,res){
+  console.log('get all allergies');
+  var allergies_query ="SELECT patient.Current_Status FROM Patient patient WHERE patient.SSN =?";
+  connection.query(allergies_query,[req.query.ssn],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
 
 app.get('/deleteAllergy',function(req,res){
   console.log('get all allergies');
@@ -543,6 +556,19 @@ app.get('/saveImmunizationsEdit',function(req,res){
           "IN "+
             "(SELECT Id FROM Immunizations WHERE Value =?)";
   connection.query(allergies_query,[req.query.al2,req.query.ssn,req.query.al1],function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/saveCurrentStatEdit',function(req,res){
+  console.log('save all allergies');
+  var allergies_query ="UPDATE Patient SET Current_Status =? WHERE SSN=?";
+  connection.query(allergies_query,[req.query.al2,req.query.ssn],function(err, rows, fields) {
     if (!err){
       console.log('allergies all ',rows);
       res.json(rows);

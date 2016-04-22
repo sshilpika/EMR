@@ -1,6 +1,24 @@
 
 
 {{#section 'preconditions'}}
+<script type="text/javascript">
+$(document).on('click','.preLi',function(){
+  console.log(JSON.stringify($(this).children('.pre-delete').css('visibility')));
+  var $button1 = $(this).children('.pre-delete');
+  var $button2 = $(this).children('.pre-edit');
+  console.log(JSON.stringify($(this).parent()));
+  if(($button1.css('visibility') == 'visible') || ($button2.css('visibility') == 'visible')){
+
+    $(this).parent().toggleClass('down');
+    $button1.hide().css('visibility','hidden').fadeIn("slow");
+    $button2.hide().css('visibility','hidden').fadeIn("slow");
+  }else {
+      $(this).parent().toggleClass('down');
+      $button1.hide().css('visibility','visible').fadeIn("slow");
+      $button2.hide().css('visibility','visible').fadeIn("slow");
+    }
+});
+</script>
 
 <!-- Show the list of pre-existing conditions -->
 <div id='edit-message'></div>
@@ -9,12 +27,12 @@
       {{#each result}}
         <li class='toggle'>
 
-            <p class='preLi'>
+            <div class='preLi'>
             <div class='pre-value'>&nbsp;&nbsp;{{Value}} </div>
             <div class='pre-entry-date'>{{formatDate EntryDate "MMMM Do, YYYY"}}</div>
             <button class='pre-delete'>Delete</button>
             <button class='pre-edit'>Edit</button>
-          </p>
+          </div>
 
         </li>
         <br/>
@@ -31,7 +49,7 @@
 
         <!-- modal window pop up-->
 
-        <div id="myModal" class="modal">
+        <div id="myModalPrecond" class="modal" name='precond'>
 
           <!-- Modal content -->
           <div class="modal-content">
@@ -45,7 +63,7 @@
 
               </select>
 
-              <button id="conditionSave">Save</button>
+              <button id="conditionSave"  class='save'>Save</button>
             </div>
             <div class="modal-footer">
               <h3>Modal Footer</h3>

@@ -2,7 +2,21 @@
 {{#section 'allergies'}}
 <link rel="stylesheet" type="text/css" href="css/allergies-popup.css">
 <script type="text/javascript" src='css/js/edit-delete-allergy.js'></script>
-
+<script type="text/javascript">
+$(document).on('click','.allergyLi',function(event){
+  event.stopPropagation();
+  //$(document).unbind();
+  console.log(JSON.stringify($(this).children().css('visibility')));
+  var $buttons = $(this).children();
+  if($buttons.css('visibility') === 'visible'){
+    $(this).parent().toggleClass('down');
+    $buttons.hide().css('visibility','hidden').fadeIn("slow");
+  }else {
+      $(this).parent().toggleClass('down');
+      $buttons.hide().css('visibility','visible').fadeIn("slow");
+    }
+});
+</script>
 <div id='edit-message'></div>
 <div>
     <ul class='allergiesList' style="list-style-type:square">
@@ -11,6 +25,7 @@
 
             <p class='allergyLi'>
                 &nbsp;&nbsp;{{Value}}
+
                 <button class='allergy-delete'>Delete</button>
                 <button class='allergy-edit'>Edit</button>
 
@@ -27,7 +42,7 @@
 
 <!-- modal window pop up-->
 
-<div id="myModal" class="modal">
+<div id="myModalAllergy" class="modal" name='allergies'>
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -41,7 +56,7 @@
 
       </select>
 
-      <button id="allergySave">Save</button>
+      <button id="allergySave"  class='save'>Save</button>
     </div>
     <div class="modal-footer">
       <h3>Modal Footer</h3>
