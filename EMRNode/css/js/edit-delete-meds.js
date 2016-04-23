@@ -34,12 +34,14 @@ function updateCondition(ssn){
 
 
 function allergyMessage(ssn,ptype,message){
-
+console.log('ptype '+ptype);
   $('#edit-message-meds').empty();
   $(document).unbind();
   var $deferredRefreshAl = $.get('/patient-medications?ssn='+ssn, function(list) {
     $('div.medications').html(list); // show the list
-    var p =$('<p>');
+    var p='';
+    if('ptype'=='fail'){p=$('<p style="color:red">');}else{p=$('<p style="color:#4CAF50">');}
+    //var p =$('<p>');
     p.attr("name", ptype);
     p.html(message);
     p.hide();
@@ -124,7 +126,7 @@ $(document).on('click','button.med-delete',function(){
         $(document).unbind();
         var $deferredRefreshAl = $.get('/patient-medications?ssn='+$('#ssn').text(), function(list) {
             $('div.medications').html(list); // show the list
-            var p =$('<p>');
+            var p =$('<p stlye="color:#4CAF50">');
             p.attr("name", "pass");
             p.html('Changes deleted successfully');
             p.hide();
