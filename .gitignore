@@ -20,3 +20,9 @@ misc.css
 emr/
 EMRMONGO/
 .idea/
+.DS_Store
+MyStuff
+arrow-back-128.png
+EMRNode/stuff.js
+EMRNode/back.jpg
+EMRNode/DbConn.js
