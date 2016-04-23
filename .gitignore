@@ -17,4 +17,6 @@ node_modules/
 
 stuff.js
 misc.css
-
+emr/
+EMRMONGO/
+.idea/
