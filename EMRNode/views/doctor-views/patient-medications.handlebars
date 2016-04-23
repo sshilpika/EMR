@@ -1,7 +1,7 @@
 {{#section 'medications'}}
 <link rel="stylesheet" type="text/css" href="css/toggle.css">
 <link rel="stylesheet" type="text/css" href="css/allergies-popup.css">
-<script type="text/javascript" src='css/js/pre-cond-edit-delete.js'></script>
+<script type="text/javascript" src='css/js/edit-delete-meds.js'></script>
 <script type="text/javascript">
 $(document).on('click','.medLi',function(){
   //alert(JSON.stringify($(this).children().css('visibility')));
@@ -16,7 +16,7 @@ $(document).on('click','.medLi',function(){
 });
 </script>
 <!-- Show the list of pre-existing conditions -->
-<div id='edit-message'></div>
+<div id='edit-message-meds'></div>
 <div>
     <ul>
       {{#each result}}
@@ -46,12 +46,12 @@ $(document).on('click','.medLi',function(){
           <h2>Medications</h2>
         </div>
         <div class="modal-body">
-          <select id="conditionList">
+          <select id="medList">
 
 
           </select>
 
-          <button id="conditionSave"  class='save'>Save</button>
+          <button id="medSave"  class='save'>Save</button>
         </div>
         <div class="modal-footer">
           <h3>Modal Footer</h3>

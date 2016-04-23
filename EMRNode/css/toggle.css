@@ -1,13 +1,13 @@
-#edit-message p{
+#edit-message p,#edit-message-meds p,#edit-message-immunization p,#edit-message-precond p{
   font-size: 15px;
   padding-bottom: 10px;
 }
 
-#edit-message p[name="pass"]{
+#edit-message p[name="pass"],#edit-message-meds[name="pass"] p,#edit-message-immunization p[name="pass"],#edit-message-precond p[name="pass"]{
   color:#4CAF50;
 }
 
-#edit-message p[name="fail"]{
+#edit-message p[name="fail"],#edit-message-meds[name="fail"] p,#edit-message-immunization p[name="fail"],#edit-message-precond p[name="fail"]{
   color:red;
 }
 

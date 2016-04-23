@@ -1,5 +1,7 @@
 {{#section 'immunizations'}}
-
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+<link rel="stylesheet" type="text/css" href="css/allergies-popup.css">
+<script type="text/javascript" src='css/js/edit-delete-immunization.js'></script>
 <script type="text/javascript">
 $(document).on('click','.immLi',function(){
   //alert(JSON.stringify($(this).children().css('visibility')));
@@ -15,7 +17,7 @@ $(document).on('click','.immLi',function(){
 </script>
 
 <!-- Show the list of immunizations conditions -->
-<div id='edit-message'></div>
+<div id='edit-message-immunization'></div>
     <ul style="list-style-type:square">
       {{#each result}}
         <li class='toggle'>
@@ -44,12 +46,12 @@ $(document).on('click','.immLi',function(){
           <h2>Immunizations</h2>
         </div>
         <div class="modal-body">
-          <select id="conditionList">
+          <select id="immList">
 
 
           </select>
 
-          <button id="conditionSave" class='save'>Save</button>
+          <button id="immSave" class='save'>Save</button>
         </div>
         <div class="modal-footer">
           <h3>Modal Footer</h3>

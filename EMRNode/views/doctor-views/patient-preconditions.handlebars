@@ -3,7 +3,7 @@
 {{#section 'preconditions'}}
 <link rel="stylesheet" type="text/css" href="css/toggle.css">
 <link rel="stylesheet" type="text/css" href="css/allergies-popup.css">
-<script type="text/javascript" src='css/js/pre-cond-edit-delete.js'></script>
+<script type="text/javascript" src='css/js/edit-delete-precond.js'></script>
 <script type="text/javascript">
 $(document).on('click','.preLi',function(){
   console.log(JSON.stringify($(this).children('.pre-delete').css('visibility')));
@@ -24,7 +24,7 @@ $(document).on('click','.preLi',function(){
 </script>
 
 <!-- Show the list of pre-existing conditions -->
-<div id='edit-message'></div>
+<div id='edit-message-precond'></div>
 <div>
     <ul>
       {{#each result}}
@@ -61,12 +61,12 @@ $(document).on('click','.preLi',function(){
               <h2>Pre-existing Conditions</h2>
             </div>
             <div class="modal-body">
-              <select id="conditionList">
+              <select id="preList">
 
 
               </select>
 
-              <button id="conditionSave"  class='save'>Save</button>
+              <button id="preSave"  class='save'>Save</button>
             </div>
             <div class="modal-footer">
               <h3>Modal Footer</h3>
