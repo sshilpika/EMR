@@ -707,7 +707,7 @@ app.get('/getDocSSN',function(req,res){
 })
 
 app.post('/addToVisit',function(req,res){
-  var query = "INSERT INTO Visit(Visit_ID, D_SSN, Bill_Num, CommentsSuggestions, Complaint) VALUES (?,?,?,?,?)";
+  var query = "INSERT INTO Visit(Visit_ID, Date_Time,D_SSN, Bill_Num, CommentsSuggestions, Complaint) VALUES (?,now(),?,?,?,?)";
   console.log('params'+[req.body.visitid,req.body.dSSN,req.body.billNum,req.body.comments,req.body.complaints]);
   connection.query(query,[req.body.visitid,req.body.dSSN,req.body.billNum,req.body.comments,req.body.complaints],function(err, rows, fields) {
     if (!err){
