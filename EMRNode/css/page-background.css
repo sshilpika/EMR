@@ -24,3 +24,15 @@ div.patient-top-container{
 
 
 }
+.copyright{
+  margin-right: 50px;
+}
+.copyright p a {
+  color: black;
+}
+.copyright p a:link{
+  text-decoration: none;
+}
+.copyright p a:hover {
+  text-decoration: underline;
+}

@@ -37,7 +37,7 @@ app.use("/physician/js", express.static(__dirname + '/physician/js'));
 app.use("/physician/tab-content", express.static(__dirname + '/physician/tab-content'));
 
 
-app.post('/say_hello', function (req, res) {
+app.post('/patient_information', function (req, res) {
   console.log(req.body.username+" "+req.body.password+" "+req.body.loginas );
 
   connection.connect(function(err){
