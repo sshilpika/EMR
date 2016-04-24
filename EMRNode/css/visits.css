@@ -1,6 +1,6 @@
 ﻿
 
-select.date-select {
+select.date-select, #addDiagnosisList, #addMedicineList{
    background-color: rgb(230, 230, 230);
    width: 268px;
    padding: 5px;
@@ -46,30 +46,130 @@ select.date-select {
    	box-shadow: inset 0px 1px 0px #737373, 0px 2px 0px 0px #595959, 0px 5px 3px #0d0d0d;
    }
 
-#addNewVisits{
+#addNewVisits, #saveNewVisit, #addDynamicDiagnosis, #addDynamicPrescription, .remMed, .remDiag{
   margin-right:10px;
   margin-left:10px;
   margin-bottom:0;
   vertical-align:middle;
-  float: right;
   z-index: 1;
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  padding:2px;
+  padding:5px;
   width:100px;
   height:30px;
   border-radius: 2px;
   text-align: center;
   background-color:rgb(230, 230, 230);
   border: 2px solid rgb(230, 230, 230);
-  float:left;
+
 
 }
 
-#addNewVisits:hover {
+#addDynamicDiagnosis, #addDynamicPrescription,.remMed, .remDiag{
+    margin-bottom: 0;
+}
+
+#addNewVisits, #saveNewVisit{
+  float:left;
+}
+.remMed, .remDiag{
+  float:right;
+}
+
+#addNewVisits:hover, #saveNewVisit:hover, #addDynamicDiagnosis:hover, #addDynamicPrescription:hover,.remMed:hover, .remDiag:hover{
   background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#addNewVisitModal{
+  display: none;
+  position:absolute;; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height:1000px;
+  max-height: 1000px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#edit-message-visits p{
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+#edit-message-visits p[name="pass"]{
+  color:#4CAF50;
+}
+
+#edit-message-visits p[name="fail"]{
+  color:red;
+}
+table.modal-content-visits, .visit-modal-header, .visit-modal-footer{
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 2px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop1;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop1;
+  animation-duration: 0.8s
+}
+table.modal-content-visits{
+  height:80px !important;
+  overflow: auto !important;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop1 {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop1 {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.visit-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.visit-close:hover,
+.visit-close:focus {
+  position: relative;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.visit-modal-header,.visit-modal-footer {
+
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+.visit-modal-footer{
+  height:40px;
+}
+.addMedQuanC {
+  float: left;
+  margin-right: 10px;
+  width:40px;
+  text-align:center;
+}
+.addDiagDiv, .addMedDiv{
+  margin-bottom: 20px;
 }

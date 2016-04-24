@@ -602,6 +602,190 @@ app.get('/saveCurrentStatEdit',function(req,res){
       console.log(err);
     });
 })
+//Add new visit changes
+
+function executeQuery0(query){
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      return rows;
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+}
+
+function executeQuery1(query,ssn){
+  connection.query(query,[ssn],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      return rows;
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+}
+
+app.get('/getVisitCount',function(req,res){
+  var query = "SELECT COUNT(*) AS 'Count' FROM Visit";
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('allergies all ',rows);
+      res.json(rows[0]);
+     console.log('allergies row 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+})
+
+app.get('/getBillCount',function(req,res){
+  var query = "SELECT COUNT(*) AS 'Count' FROM Bill";
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows[0]);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/getPhysicianName',function(req,res){
+  var query = "SELECT CONCAT(First_Name, ' ', Last_Name) AS 'Name' FROM Person person WHERE SSN =("+
+            "SELECT D_SSN FROM Patient WHERE SSN =?)";
+  var ssn = decodeURIComponent(req.query.id);
+  console.log('PHYSICIAN SSN'+ssn);
+  connection.query(query,[ssn],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows[0]);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/getDiagnosisList',function(req,res){
+  var query = "SELECT Diagnosis_Category FROM Diagnosis";
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/getMedicineList',function(req,res){
+  var query = "SELECT Mname FROM Medicine";
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/getDocSSN',function(req,res){
+  var query = "SELECT SSN FROM Person WHERE CONCAT(First_Name, ' ', Last_Name) =?";
+  connection.query(query,[req.query.dName],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.post('/addToVisit',function(req,res){
+  var query = "INSERT INTO Visit(Visit_ID, D_SSN, Bill_Num, CommentsSuggestions, Complaint) VALUES (?,?,?,?,?)";
+  console.log('params'+[req.body.visitid,req.body.dSSN,req.body.billNum,req.body.comments,req.body.complaints]);
+  connection.query(query,[req.body.visitid,req.body.dSSN,req.body.billNum,req.body.comments,req.body.complaints],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.post('/addToHasVisits',function(req,res){
+  var query = "INSERT INTO Has_Visits(P_SSN, Visit_ID) VALUES (?,?)";
+  console.log('params'+[req.body.pSSN,req.body.visitid]);
+  connection.query(query,[req.body.pSSN,req.body.visitid],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.post('/addToResults',function(req,res){
+  var query = "INSERT INTO Result(Visit_ID, Diagnosis_ID) VALUES (?,(SELECT Diagnosis_ID FROM Diagnosis WHERE Diagnosis_Category =?))";
+  console.log('params'+[req.body.visitId,req.body.diagnosisName]);
+  connection.query(query,[req.body.visitId,req.body.diagnosisName],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results ',rows);
+      res.json(rows);
+     console.log('DB Result 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+app.get('/getPrescriptionId',function(req,res){
+  var query = "SELECT count(*) AS 'RxId' FROM Prescription";
+  connection.query(query,function(err, rows, fields) {
+    if (!err){
+      console.log('RXID ',rows);
+      res.json(rows);
+     console.log('RXID 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/addToPrescribedMeds',function(req,res){
+  var query = "INSERT INTO Prescribed_Meds(Prescription_ID, Minventory_ID, Medicine_Quantity) VALUES (?,(SELECT Minventory_ID FROM Medicine WHERE Mname =?),?)";
+  connection.query(query,[req.query.rxid,req.query.medname,req.query.medquan],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results Prescribed_Meds',rows);
+      res.json(rows);
+     console.log('DB Result Prescribed_Meds1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
+app.get('/addToPrescriptions',function(req,res){
+  var query = "INSERT INTO Prescription(Prescription_ID, Visit_ID, PH_SSN) VALUES (?,?,?)";
+  connection.query(query,[req.query.rxid,req.query.visitid,req.query.phid],function(err, rows, fields) {
+    if (!err){
+      console.log('DB Results Prescription',rows);
+      res.json(rows);
+     console.log('DB Result Prescription 1 ',rows[0]);
+    }else
+      console.log(err);
+    });
+
+})
+
 
 app.get('/login.html',function(req, res){
   res.sendFile( __dirname + "/" + "login.html" );

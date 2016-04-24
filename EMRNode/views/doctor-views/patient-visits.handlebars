@@ -1,6 +1,8 @@
 
 {{#section 'visits'}}
 
+<script type="text/javascript" src="css/js/addNewVisits.js"></script>
+<div id='edit-message-visits'></div>
 
 <p class='date'>Select a Date:
   <select class='date-select'>
@@ -8,7 +10,7 @@
     </option>
     {{#each result}}
         <option class='visit-date' name="{{Date_Time}}">
-            {{formatDate Date_Time "MMMM Do YYYY"}}
+            {{formatDate Date_Time "MMMM Do YYYY, h:mm a"}}
         </option>
     {{/each}}
   </select>
@@ -26,7 +28,95 @@
 
     </div>
     <!-- Add new item Button -->
-        <div><button id="addNewVisits">Add New Visit</button></div>
-    <div id="fade7" class="black_overlay"></div>
+    <div><button id="addNewVisits">Add New Visit</button></div>
+    <br/> <br/>
+
+
+
+    <div id="addNewVisitModal" contenteditable="false" style="border:thin solid black">
+      <script type="text/javascript" src="css/js/visit-add-modal.js"></script>
+      <div class="visit-modal-header">
+        <h2>New Visit</h2>
+      </div>
+      <table class='modal-content-visits'>
+      <tr id='Visit-Id-Add'>
+        <td>Visit ID</td>
+        <td id="visitIdAdd"></td>
+      </tr>
+
+      <tr id='Physician-Name-Add'>
+        <td>Physician Name</td>
+        <td id="docNameAdd"></td>
+      </tr>
+
+      <tr id='Bill-Num-Add'>
+        <td>Bill Number</td>
+        <td id="billNumAdd"></td>
+      </tr>
+
+      <tr id='Diagnosis-Add'>
+        <td>Diagnosis</td>
+        <td id="diagnosisAdd">
+          <div id="addDiagnosis" contenteditable="false">
+              <div id='addDivGroup1'>
+              </div>
+              <br/>
+              <select id="addDiagnosisList">
+
+
+              </select>
+
+              <button id="addDynamicDiagnosis">Add</button>
+          </div>
+          <br/>
+        </td>
+      </tr>
+
+      <tr id='PrescriptionAdd'>
+        <td>Prescription</td>
+        <td id="prescriptionsAdd">
+          <div id="addPrescription" contenteditable="false">
+              <div id='addDivGroup2'>
+              </div>
+              <br/>
+              <select id="addMedicineList">
+
+              </select>
+              <button id="addDynamicPrescription">Add</button>
+          </div>
+          <br/>
+      </td>
+      </tr>
+
+      <tr id='commentsAdd'>
+        <td>Comments</td>
+        <td id="commentsSuggestionsAdd">
+          <div id="addComments" contenteditable="true" style="border:thin dotted black">
+            <p></p>
+          </div>
+        </td>
+      </tr>
+
+      <tr id='ComplaintsAdd'>
+        <td>Complaints</td>
+        <td id="complaintAdd">
+          <div id="addComplaint" contenteditable="true" style="border:thin dotted black">
+            <p></p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><br/><button id="saveNewVisit">Save</button></td>
+        <td>
+        </td>
+      </tr>
+      </table>
+
+        <div class="visit-modal-footer">
+
+        </div>
+      </div>
+
+
 
 {{/section}}
