@@ -52,10 +52,10 @@ function allergyMessage(ssn,ptype,message){
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  var $modal = $('#myModalPrecond');
-  console.log('modal window close '+$modal);
-    if (event.target == $modal) {
-        $modal.hide();
+  var modal = document.getElementById('myModalPrecond');
+  console.log('modal window close '+modal);
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }
 //close window on close button
