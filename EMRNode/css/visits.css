@@ -182,3 +182,14 @@ table.modal-content-visits{
 .addDiagDiv, .addMedDiv{
   margin-bottom: 20px;
 }
+
+#edit-message-visits{
+  height:10px;
+  float:right;
+  padding-bottom: 40px;
+}
+.allergiesList, .preconUlList, .medUlList, .immUlList{
+
+  padding-top: 40px;
+  list-style-type: none;
+}

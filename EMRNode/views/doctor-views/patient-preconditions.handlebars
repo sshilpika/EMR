@@ -24,9 +24,9 @@ $(document).on('click','.preLi',function(){
 </script>
 
 <!-- Show the list of pre-existing conditions -->
-<div id='edit-message-precond'></div>
+<div id='edit-message-precond'><button id="addNewPreCon">Add New Item</button></div>
 <div>
-    <ul>
+    <ul class='preconUlList'>
       {{#each result}}
         <li class='toggle'>
 
@@ -46,8 +46,6 @@ $(document).on('click','.preLi',function(){
 </div>
 
 
-    <!-- Add new item Button -->
-        <p><button id="addNewPreCon">Add New Item</button></p>
 
 
         <!-- modal window pop up-->

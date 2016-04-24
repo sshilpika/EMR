@@ -35,7 +35,7 @@
   border: 2px solid rgb(230, 230, 230);
 }
 #addNewStat,#addNewAllergy, #addNewPreCon, #addNewMedication, #addNewImmunization{
-  float:left !important;
+
   width:100px !important;
 }
 
@@ -164,4 +164,13 @@ li p button{
 }
 li button{
 	visibility: hidden;
+}
+
+#edit-message, #edit-message-precond, #edit-message-meds, #edit-message-immunization{
+  height:10px;
+}
+.allergiesList, .preconUlList, .medUlList, .immUlList{
+
+  padding-top: 40px;
+  list-style-type: none;
 }

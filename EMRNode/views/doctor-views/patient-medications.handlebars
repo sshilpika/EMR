@@ -16,9 +16,9 @@ $(document).on('click','.medLi',function(){
 });
 </script>
 <!-- Show the list of pre-existing conditions -->
-<div id='edit-message-meds'></div>
+<div id='edit-message-meds'><button id="addNewMedication">Add New Item</button></div>
 <div>
-    <ul>
+    <ul class='medUlList'>
       {{#each result}}
         <li class='toggle'>
           <p class='medLi'>
@@ -32,8 +32,7 @@ $(document).on('click','.medLi',function(){
     </ul>
 
 </div>
-<!-- Add new item Button -->
-    <p><button id="addNewMedication">Add New Item</button></p>
+
 
     <!-- modal window pop up-->
 

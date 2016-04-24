@@ -17,8 +17,8 @@ $(document).on('click','.immLi',function(){
 </script>
 
 <!-- Show the list of immunizations conditions -->
-<div id='edit-message-immunization'></div>
-    <ul style="list-style-type:square">
+<div id='edit-message-immunization'><button id="addNewImmunization">Add New Item</button></div>
+    <ul class='immUlList'>
       {{#each result}}
         <li class='toggle'>
           <p class='immLi'>
@@ -31,9 +31,6 @@ $(document).on('click','.immLi',function(){
         {{/each}}
     </ul>
 
-
-<!-- Add new item Button -->
-    <p><button id="addNewImmunization">Add New Item</button></p>
 
     <!-- modal window pop up-->
 
