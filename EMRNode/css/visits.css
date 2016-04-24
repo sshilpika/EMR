@@ -70,8 +70,11 @@ select.date-select, #addDiagnosisList, #addMedicineList{
     margin-bottom: 0;
 }
 
-#addNewVisits, #saveNewVisit{
+#saveNewVisit{
   float:left;
+}
+#addNewVisits{
+  float:right;
 }
 .remMed, .remDiag{
   float:right;
@@ -97,6 +100,11 @@ select.date-select, #addDiagnosisList, #addMedicineList{
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#edit-message-visits{
+  height:10px;
+  padding-bottom: 40px;
 }
 
 #edit-message-visits p{
@@ -183,11 +191,7 @@ table.modal-content-visits{
   margin-bottom: 20px;
 }
 
-#edit-message-visits{
-  height:10px;
-  float:right;
-  padding-bottom: 40px;
-}
+
 .allergiesList, .preconUlList, .medUlList, .immUlList{
 
   padding-top: 40px;
