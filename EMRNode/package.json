@@ -2,6 +2,7 @@
   "name": "node-mysql",
   "version": "0.0.1",
   "dependencies": {
+    "atob": "^2.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",

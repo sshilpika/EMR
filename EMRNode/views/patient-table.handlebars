@@ -42,7 +42,8 @@
     var ssn = row.cells[0].innerHTML;	//get SSN
     var userType = document.getElementById('userTypeDetails');
     console.log('user type - patient table+'+userType);
-    window.location.href = "/patient-details?ssn=" + ssn+"&userType="+userType;
+    var ssn1 = btoa(ssn);
+    window.location.href = "/patient-details?id=" + ssn1+"&userType="+userType;
     //alert(x);
   }
 </script>

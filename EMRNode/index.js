@@ -17,6 +17,7 @@ var handlebars      = require('express3-handlebars').create({
 var mysql           = require('mysql');
 var mongoose        = require('mongoose');
 var bcrypt          = require('bcrypt-nodejs');
+var atob = require('atob');
 
 var connection = mysql.createConnection({
   host     : '127.0.0.1',
@@ -103,7 +104,9 @@ function patientDetails(ssn,userType,res){
 }
 
 app.get('/patient-details',function(req,res){
-  patientDetails(req.query.ssn,req.query.userType,res);
+  var ssn = atob(req.query.id);
+  console.log("PATIENT_DETAILS SSN --->"+ssn);
+  patientDetails(ssn,req.query.userType,res);
 
 })
 
