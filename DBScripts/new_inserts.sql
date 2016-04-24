@@ -1,9 +1,9 @@
-Alter table patient add username tinytext FIRST;
-alter table patient add password char(255) after username;
-Alter table doctor add username tinytext FIRST;
-alter table doctor add password char(255) after username;
-Alter table pharmacist add username tinytext FIRST;
-alter table pharmacist add password char(255) after username;
+Alter table Patient add username tinytext FIRST;
+alter table Patient add password char(255) after username;
+Alter table Doctor add username tinytext FIRST;
+alter table Doctor add password char(255) after username;
+Alter table Pharmacist add username tinytext FIRST;
+alter table Pharmacist add password char(255) after username;
 
 
 
@@ -21,22 +21,22 @@ SET username = 'SJohn',
 image = '/emr/patient/img/SJohn.png'
 where SSN = 99999;
 
-UPDATE pharmacist
+UPDATE Pharmacist
 SET username = 'CClaudia',
  	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 666666;
 
-UPDATE pharmacist
+UPDATE Pharmacist
 SET username = 'RTerry',
  	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 7777555;
 
-UPDATE doctor
+UPDATE Doctor
 SET username = 'DLily',
  	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 44444;
 
-UPDATE doctor
+UPDATE Doctor
 SET username = 'TJacob',
  	password = '$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6'
 where SSN = 55555;
