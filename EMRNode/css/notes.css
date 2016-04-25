@@ -11,3 +11,34 @@ select.note-select {
    -moz-border-radius: 5px;
    border-radius: 5px;
    }
+   tr{
+     background-color: white;
+   }
+#addNewNote, #btnSave9{
+  margin-right:10px;
+  margin-left:10px;
+  margin-bottom:0;
+  vertical-align:middle;
+  z-index: 1;
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding:5px;
+  width:100px;
+  height:30px;
+  border-radius: 2px;
+  text-align: center;
+  background-color:rgb(230, 230, 230);
+  border: 2px solid rgb(230, 230, 230);
+  float: right;
+}
+
+#addNewNote:hover, #btnSave9:hover{
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#noteTable{
+  display: none;
+}

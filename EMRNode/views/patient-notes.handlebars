@@ -1,6 +1,7 @@
 <!--<table width="100%" border="1" cellpadding="3" cellspacing="0">    -->
 {{#section 'notes'}}
 <script type="text/javascript" src="css/js/notes.js"></script>
+<div><button class='noteEdits' id="addNewNote">Add New Note</button></div>
 <p class='date'>Select a Date:
   <select class='note-select' id='dateNote'>
     <option>
@@ -14,7 +15,7 @@
 </p>
 <br/>
 
-<table width="100%" style="background-color:white">
+<table id='noteTable' width="100%" style="background-color:white">
     <tr>
 
         <!-- Detail Right Panel-->
@@ -27,7 +28,7 @@
                 </div>
 
                 <p align="right">
-                    <button class='noteEdits' id="popUpNote">Edit This Note</button>
+                    <button class='noteEdits' id="addNewNote">Edit Note</button>
                 </p>
             </div>
         </td>
@@ -37,32 +38,5 @@
 
 
 
-<!-- Add new item Button -->
-    <p><button class='noteEdits' id="addNewNote">Add New Note</button></p>
 
-<!-- Pop-Up screen -->
-    <div id="light9" class="white_content">
-        Write something below:
-        <br/>
-
-        <!--<textarea id="txtArea9" rows="1"></textarea>            -->
-        <p><div id="txtArea9" contenteditable="true" style="border:1px dotted black" align="left" width="50%">
-        <p>
-
-        </p>
-        </div></p>
-
-        <button id="btnSave9" onclick="updateNote()">Save</button>
-
-        <br/>
-        <br/>
-        <!--<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a>-->
-        <a href = "javascript:void(0)" onclick = "closeNote()">Close</a>
-
-        <br/>
-        <br/>
-        <i><div id="bottomLabel9"></div></i>
-    </div>
-
-    <div id="fade9" class="black_overlay"></div>
 {{/section}}

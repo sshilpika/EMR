@@ -11,6 +11,7 @@ function getNote(dateSelectedNote){
     $.when($deferredNotes).done(function(response){
         var $notes = response;
           $("#noteBox").empty();
+          $("#noteTable").show();
         $notes.forEach(function(item){
           if(item != null){
 
