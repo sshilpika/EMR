@@ -1,0 +1,100 @@
+
+db.createCollection("patient");
+db.createCollection("doctor");
+db.createCollection("pharmacist");
+db.createCollection("visit");
+db.createCollection("emrLists");
+
+db.patient.insert({
+  SSN:"99999",
+  First_Name:"John",
+  Last_Name: "Smith",
+  Home_Address:"731 Fondren",
+  Birth_Date:"1965-07-09",
+  Home_Phone:"123456789",
+  City:"Houston",
+  State: "TX",
+  ZipCode:"90909",
+  password:"$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6",
+  Gender:'M'
+  doctor:["55555","44444"],
+  pharmacist:['66666','1098398']
+  current_status:['Heart Problem','Dust Allergies','Back Pain'],
+  allergies:['dust','egg']
+  PreExistingConditions:['Heart Disease','HIV'],
+  medications:['XX','YY','ZZZ'],
+  immunizations:['Measles','Mumps'],
+  visits:['v123','v223']
+});
+
+db.doctor.insert({
+  SSN:"55555",
+  First_Name:"Trey",
+  Last_Name: "Jacob",
+  Home_Address:"731 Fondren",
+  Birth_Date:"1965-07-09",
+  Home_Phone:"123456789",
+  City:"Houston",
+  State: "TX",
+  ZipCode:"90909",
+  specialization:"cardiologist",
+  Department:'Cardiovascular',
+  Gender:'M'
+  password:"$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6",
+  });
+
+  db.pharmacist.insert({
+    SSN:"66666",
+    First_Name:"Amanda",
+    Last_Name: "Terry",
+    Home_Address:"333 Fondren",
+    Birth_Date:"1965-07-09",
+    Home_Phone:"123456789",
+    City:"Houston",
+    State: "TX",
+    ZipCode:"90909",
+    Gender:'F'
+    password:"$2a$10$pHKGwaQY75TR68WR3b5xeuSJ7Mw2meyBrU45uj6ivdxP4MQw5zkG6",
+    });
+
+  db.visit.insert({
+  id:'v123',
+  date:'2012-01-01',
+  patient_ssn:"99999",
+  doctor_ssn:"55555",
+  pharmacist:'66666'
+  prescription:['xx','yy'],
+  diagnosis:['heart disease'],
+  billnum:['b123'],
+  comments:'irregular heart beat detected',
+  complaints:'no complaints',
+  notes:'no notes for this visit'
+  });
+
+  db.bill.insert({
+  billnum:'b123',
+  prescribedMeds:['xx','yy','zz'],
+  price:'300',
+  billdate:'2012-01-01'
+  paymentMethod:'credit'
+  });
+
+  db.emrLists.insert({
+  name:"diagnosis",
+  list:['heart disease','HIV']
+  });
+
+  db.emrLists.insert({
+  name:"medications",
+  list:['xx','yy','zz']
+  });
+
+  db.emrLists.insert({
+  name:"immunizations",
+  list:['Measles','Mumps','Rubella']
+  });
+
+  db.emrLists.insert({
+  name:"allergies",
+  list:['dust','egg','pollen']
+  });
